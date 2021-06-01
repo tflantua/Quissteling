@@ -7,5 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="EsstelingPrimary">#b00a27</color>
+    <color name="EsstelingSecondary">#e74c69</color>
+    <color name="gold">#c0833a</color>
 
 </resources>
