@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".signin.SignInActivity">
 
     <ImageView
@@ -21,10 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:textAlignment="center"
+        android:background="@color/EsstelingSecondary"
         android:ems="10"
         android:hint="@string/usernameHint"
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appnameLabel" />
@@ -33,11 +35,11 @@
         android:id="@+id/appnameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/quisstelingLabel"
+        android:textColor="@color/EsstelingPrimary"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:textColor="@color/EsstelingPrimary"
-        android:text="@string/quisstelingLabel"
-        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/esstelingImageView" />

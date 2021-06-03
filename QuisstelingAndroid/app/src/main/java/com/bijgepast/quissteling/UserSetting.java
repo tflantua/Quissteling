@@ -2,19 +2,14 @@ package com.bijgepast.quissteling;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 public class UserSetting {
-    private static final String LOGTAG = UserSetting.class.getSimpleName();
-
-    private final Context context;
     private final SharedPreferences sharedPref;
 
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
 
     public UserSetting(Context context) {
-        this.context = context;
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 
@@ -26,7 +21,7 @@ public class UserSetting {
     }
 
     public boolean exists() {
-        return sharedPref.contains(USERNAME_KEY) && sharedPref.contains(String.valueOf(SCORE_KEY));
+        return sharedPref.contains(USERNAME_KEY) && sharedPref.contains(SCORE_KEY);
     }
 
     public String getUsername() {
@@ -37,8 +32,12 @@ public class UserSetting {
         this.sharedPref.edit().putString(USERNAME_KEY, username).apply();
     }
 
+    public String getScoreString() {
+        return "Score: " + sharedPref.getInt(SCORE_KEY, 0);
+    }
+
     public int getScore() {
-        return sharedPref.getInt(String.valueOf(SCORE_KEY), 0);
+        return sharedPref.getInt(SCORE_KEY, 0);
     }
 
     public void setScore(int score) {
