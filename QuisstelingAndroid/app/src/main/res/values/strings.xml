@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Quissteling</string>
+    <string name="preference_file_key">com.bijgepast.quissteling_setting</string>
     <string name="usernameHint">Vul hier je username in</string>
     <string name="quisstelingLabel">De Quissteling</string>
     <string name="log_inButton">Log in</string>

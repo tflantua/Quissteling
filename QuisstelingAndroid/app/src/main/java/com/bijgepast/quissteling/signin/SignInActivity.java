@@ -1,4 +1,4 @@
-package com.bijgepast.quissteling;
+package com.bijgepast.quissteling.signin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.bijgepast.quissteling.MainActivity;
+import com.bijgepast.quissteling.R;
+
 public class SignInActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     public static final String EXTRA_MESSAGE = "usernameMessageToMainActivity";
     private EditText usernameInput;
-    //UserSetting userSetting;
+    UserSetting userSetting;
 
     //TODO UserSettings class maken voor het gebruik van SharedPreferences over de hele applicatie
     //TODO Gebruik maken van SharedPreferences om de Username op te slaan. (Zo kunnen we uiteindelijk checken of de gebruiker meteen door mag gaan naar de MainActivity)
