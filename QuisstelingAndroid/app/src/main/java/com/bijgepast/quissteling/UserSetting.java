@@ -7,55 +7,41 @@ import android.util.Log;
 public class UserSetting {
     private static final String LOGTAG = UserSetting.class.getSimpleName();
 
-    private String username;
-    private int score;
-
     private final Context context;
     private final SharedPreferences sharedPref;
 
-    public final static String USERNAME_KEY = null;
-    public final static int SCORE_KEY = 0;
-
-    public static UserSetting getUserSettingFromPref(Context context) {
-        return new UserSetting(context);
-    }
+    private final String USERNAME_KEY = "username";
+    private final String SCORE_KEY = "scorekey";
 
     public UserSetting(Context context) {
         this.context = context;
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        this.username = sharedPref.getString(USERNAME_KEY, null);
-        this.score = sharedPref.getInt(String.valueOf(SCORE_KEY), 0);
-        Log.d(LOGTAG, "User name restored, Username: " + username + " Score: " + score);
-    }
-
-    public void save() {
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(USERNAME_KEY, username);
-        editor.putInt(String.valueOf(SCORE_KEY), score);
-        editor.apply();
-        Log.d(LOGTAG, "User setting saved");
     }
 
     public void remove() {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.remove(USERNAME_KEY);
-        editor.remove(String.valueOf(SCORE_KEY));
+        editor.remove(SCORE_KEY);
         editor.apply();
     }
 
+    public boolean exists() {
+        return sharedPref.contains(USERNAME_KEY) && sharedPref.contains(String.valueOf(SCORE_KEY));
+    }
+
     public String getUsername() {
-        return username;
+        return sharedPref.getString(USERNAME_KEY, "");
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.sharedPref.edit().putString(USERNAME_KEY, username).apply();
     }
 
     public int getScore() {
-        return score;
+        return sharedPref.getInt(String.valueOf(SCORE_KEY), 0);
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.sharedPref.edit().putInt(SCORE_KEY, score).apply();
     }
 }

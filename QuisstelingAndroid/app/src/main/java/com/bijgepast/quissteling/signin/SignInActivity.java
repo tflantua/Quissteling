@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bijgepast.quissteling.HomeActivity.HomeActivity;
 import com.bijgepast.quissteling.MainActivity;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
@@ -28,10 +29,9 @@ public class SignInActivity extends AppCompatActivity {
 
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             userSetting.setScore(0);
             userSetting.setUsername(usernameInput.getText().toString());
-            userSetting.save();
             Log.d(LOG_TAG, "Traversing to Mainactivity with username: "
                     + userSetting.getUsername()
                     + " Score: "
