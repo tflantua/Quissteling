@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
 
+    <ImageView
+        android:id="@+id/esstelingImageView"
+        android:layout_width="416dp"
+        android:layout_height="371dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/esstelinglogo" />
+
+    <EditText
+        android:id="@+id/usernameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="@string/usernameHint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appnameLabel" />
+
+    <TextView
+        android:id="@+id/appnameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/EsstelingPrimary"
+        android:text="@string/quisstelingLabel"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esstelingImageView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/log_inButton"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
