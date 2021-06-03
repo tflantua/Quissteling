@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 public class MyPrizesViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private final MutableLiveData<String> mText;
 
     public MyPrizesViewModel() {
         mText = new MutableLiveData<>();

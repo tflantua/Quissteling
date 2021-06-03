@@ -18,8 +18,8 @@ import java.util.List;
 public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.LeaderBoardViewHolder> {
     private static final String LOGTAG = LeaderBoardAdapter.class.getName();
 
-    private Context appContext;
-    private List<LeaderBoard> leaderBoards;
+    private final Context appContext;
+    private final List<LeaderBoard> leaderBoards;
 
     class LeaderBoardViewHolder extends RecyclerView.ViewHolder {
         public final ViewDataBinding binding;

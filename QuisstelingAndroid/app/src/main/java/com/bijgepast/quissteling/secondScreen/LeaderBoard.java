@@ -1,15 +1,11 @@
 package com.bijgepast.quissteling.secondScreen;
 
-import android.util.Log;
-import android.widget.ImageView;
-
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class LeaderBoard implements Serializable {
-    private String place;
-    private String userName;
-    private int score;
+    private final String place;
+    private final String userName;
+    private final int score;
 
     public LeaderBoard(String place, String userName, int score) {
         this.place = place;

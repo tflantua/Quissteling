@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 public class Score implements Serializable {
     private SharedPreferences sharedPreferences;
-    private int score;
+    private final int score;
 
     public Score() {
         //this.sharedPreferences = new SharedPreferences()
