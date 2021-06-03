@@ -1,10 +1,8 @@
-package com.bijgepast.quissteling.signin;
+package com.bijgepast.quissteling;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-
-import com.bijgepast.quissteling.R;
 
 public class UserSetting {
     private static final String LOGTAG = UserSetting.class.getSimpleName();
@@ -18,11 +16,11 @@ public class UserSetting {
     public final static String USERNAME_KEY = null;
     public final static int SCORE_KEY = 0;
 
-    public static UserSetting getUserSettingFromPref(Context context){
+    public static UserSetting getUserSettingFromPref(Context context) {
         return new UserSetting(context);
     }
 
-    private UserSetting(Context context){
+    public UserSetting(Context context) {
         this.context = context;
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         this.username = sharedPref.getString(USERNAME_KEY, null);
@@ -30,12 +28,19 @@ public class UserSetting {
         Log.d(LOGTAG, "User name restored, Username: " + username + " Score: " + score);
     }
 
-    public void save(){
+    public void save() {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(USERNAME_KEY, username);
         editor.putInt(String.valueOf(SCORE_KEY), score);
         editor.apply();
         Log.d(LOGTAG, "User setting saved");
+    }
+
+    public void remove() {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.remove(USERNAME_KEY);
+        editor.remove(String.valueOf(SCORE_KEY));
+        editor.apply();
     }
 
     public String getUsername() {
