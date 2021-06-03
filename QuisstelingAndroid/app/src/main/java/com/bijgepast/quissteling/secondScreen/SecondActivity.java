@@ -11,7 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.Score;
+import com.bijgepast.quissteling.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,11 +22,14 @@ public class SecondActivity extends AppCompatActivity {
     private Button infoButton;
     private Button codeButton;
 
+    private UserSetting userSetting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.userSetting = new UserSetting(this);
         ActivitySecondscreenBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_secondscreen);
-        binding.setScore(new Score());
+        binding.setScore(userSetting);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_leaderboard, R.id.navigation_myprizes)
