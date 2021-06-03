@@ -18,9 +18,12 @@ public class SignInActivity extends AppCompatActivity {
     private EditText usernameInput;
     UserSetting userSetting;
 
-    //TODO UserSettings class maken voor het gebruik van SharedPreferences over de hele applicatie
-    //TODO Gebruik maken van SharedPreferences om de Username op te slaan. (Zo kunnen we uiteindelijk checken of de gebruiker meteen door mag gaan naar de MainActivity)
-    //TODO onDestroy methode maken dat de username opslaat in de SharedPrefrences doormiddel van de UserSettings class
+    protected void onDestroy(){
+        userSetting.setUsername(usernameInput.getText().toString());
+        userSetting.setScore(0);
+        userSetting.save();
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +36,13 @@ public class SignInActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO Shared preferences meegeven
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                String message = usernameInput.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);
-                Log.d(LOG_TAG, "Traversing to Mainactivity with username: " + message);
+                intent.putExtra(UserSetting.USERNAME_KEY, usernameInput.getText().toString());
+                intent.putExtra(String.valueOf(UserSetting.SCORE_KEY), 0);
+                Log.d(LOG_TAG, "Traversing to Mainactivity with username: "
+                        + intent.getStringExtra(UserSetting.USERNAME_KEY)
+                        + " Score: "
+                        + intent.getStringExtra(String.valueOf(UserSetting.SCORE_KEY)));
                 startActivity(intent);
             }
         });
