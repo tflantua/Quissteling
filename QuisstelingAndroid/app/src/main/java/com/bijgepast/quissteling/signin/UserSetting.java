@@ -15,7 +15,7 @@ public class UserSetting {
     private final Context context;
     private final SharedPreferences sharedPref;
 
-    public final static String USERNAME_KEY = "username";
+    public final static String USERNAME_KEY = null;
     public final static int SCORE_KEY = 0;
 
     public static UserSetting getUserSettingFromPref(Context context){
@@ -25,7 +25,7 @@ public class UserSetting {
     private UserSetting(Context context){
         this.context = context;
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        this.username = sharedPref.getString(USERNAME_KEY, "User");
+        this.username = sharedPref.getString(USERNAME_KEY, null);
         this.score = sharedPref.getInt(String.valueOf(SCORE_KEY), 0);
         Log.d(LOGTAG, "User name restored, Username: " + username + " Score: " + score);
     }
