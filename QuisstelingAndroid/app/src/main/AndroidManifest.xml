@@ -12,6 +12,7 @@
         <activity
             android:name=".secondScreen.SecondActivity"
             android:label="@string/title_activity_leader_board">
+        <activity android:name=".HomeActivity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
