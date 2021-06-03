@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Quissteling</string>
+    <string name="title_activity_leader_board">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_score_bord">score bord</string>
+    <string name="title_myPrizes">Mijn prijzen</string>
+    <string name="go_back"><![CDATA[<-]]></string>
+    <string name="FillInCode">code</string>
+    <string name="Info">I</string>
+    <string name="score">score: </string>
 </resources>
