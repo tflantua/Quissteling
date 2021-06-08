@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.userSetting = new UserSetting(this);
+        this.userSetting.remove();
 
-        if (userSetting.exists()){
+        if (userSetting.exists()) {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             Log.d(LOG_TAG, "Username found sending to HomeActivity");
             startActivity(intent);
-            userSetting.remove();
-        } else{
+        } else {
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             Log.d(LOG_TAG, "No Username found sending to SignInActivity");
             startActivity(intent);

@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -14,16 +17,19 @@ public class HomeActivity extends AppCompatActivity {
     private Button leaderBoardButton;
     private Button infoButton;
     private Button codeButton;
+    private UserSetting userSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        this.userSetting = new UserSetting(this);
+        ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+        binding.setScore(userSetting);
 
         //init values
         this.leaderBoardButton = findViewById(R.id.leaderBoardButton);
-        this.infoButton = findViewById(R.id.informationButton);
-        this.codeButton = findViewById(R.id.insertCodeButton);
+        this.infoButton = findViewById(R.id.InfoButton);
+        this.codeButton = findViewById(R.id.CodeButton);
 
         this.leaderBoardButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, SecondActivity.class);

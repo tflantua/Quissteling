@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,14 +30,16 @@ public class SignInActivity extends AppCompatActivity {
 
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-            userSetting.setScore(0);
-            userSetting.setUsername(usernameInput.getText().toString());
-            Log.d(LOG_TAG, "Traversing to Mainactivity with username: "
-                    + userSetting.getUsername()
-                    + " Score: "
-                    + userSetting.getScore());
-            startActivity(intent);
+            if (!this.usernameInput.getText().toString().isEmpty()) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                userSetting.setScore(0);
+                userSetting.setUsername(usernameInput.getText().toString());
+                Log.d(LOG_TAG, "Traversing to Mainactivity with username: "
+                        + userSetting.getUsername()
+                        + " Score: "
+                        + userSetting.getScore());
+                startActivity(intent);
+            } else Toast.makeText(this, "Gebruikersnaam is leeg", Toast.LENGTH_LONG).show();
         });
 
 

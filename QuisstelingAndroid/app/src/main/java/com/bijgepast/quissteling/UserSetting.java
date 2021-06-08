@@ -34,8 +34,8 @@ public class UserSetting {
         this.sharedPref.edit().putString(USERNAME_KEY, username).apply();
     }
 
-    public int getScore() {
-        return sharedPref.getInt(String.valueOf(SCORE_KEY), 0);
+    public String getScore() {
+        return sharedPref.getInt(SCORE_KEY, 0) + "";
     }
 
     public void setScore(int score) {

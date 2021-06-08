@@ -13,5 +13,7 @@
     <string name="go_back"><![CDATA[<-]]></string>
     <string name="FillInCode">code</string>
     <string name="Info">I</string>
-    <string name="score">score: </string>
+    <string name="score">Score</string>
+    <string name="place">Plaats</string>
+    <string name="username">Gebruikersnaam</string>
 </resources>
