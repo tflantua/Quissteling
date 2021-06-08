@@ -7,10 +7,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bijgepast.quissteling.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
-import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -39,11 +39,13 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         this.infoButton.setOnClickListener(view -> {
-            //TODO popup melding voor info
+            new PopUpClass(view, R.layout.popup_info, this).show();
         });
 
         this.codeButton.setOnClickListener(view -> {
-            //TODO popup melding voor code invoer
+            new PopUpClass(view, R.layout.popup_insertcode, this, v -> {
+                //TODO zorg ervoor dat hierin de functie word aangeroepen op de code te controleren.
+            }).show();
         });
     }
 }

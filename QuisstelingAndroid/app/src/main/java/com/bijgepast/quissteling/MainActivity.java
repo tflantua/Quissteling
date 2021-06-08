@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             Log.d(LOG_TAG, "Username found sending to HomeActivity");
             startActivity(intent);
-            userSetting.remove();
+            //userSetting.remove();
         } else{
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             Log.d(LOG_TAG, "No Username found sending to SignInActivity");
