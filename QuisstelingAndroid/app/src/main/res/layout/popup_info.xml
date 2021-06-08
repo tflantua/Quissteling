@@ -33,13 +33,13 @@
                 android:id="@+id/okButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/ok" />
+                android:text="Ok" />
 
             <Button
                 android:id="@+id/closeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/close" />
+                android:text="Close" />
 
         </LinearLayout>
 

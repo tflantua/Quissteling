@@ -20,8 +20,6 @@ public class HomeActivity extends AppCompatActivity {
     private Button codeButton;
     private UserSetting userSetting;
 
-    private UserSetting userSetting;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

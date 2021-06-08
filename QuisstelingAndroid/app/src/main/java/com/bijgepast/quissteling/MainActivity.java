@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.userSetting = new UserSetting(this);
-        this.userSetting.remove();
+        //this.userSetting.remove();
 
         if (userSetting.exists()) {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
