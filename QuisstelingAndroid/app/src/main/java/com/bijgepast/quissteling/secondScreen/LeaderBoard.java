@@ -14,11 +14,11 @@ public class LeaderBoard implements Serializable {
     }
 
     public String getPlace() {
-        return place + ": ";
+        return place + "";
     }
 
     public String getUserName() {
-        return userName + ": ";
+        return userName;
     }
 
     public String getScore() {

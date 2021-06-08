@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button leaderBoardButton;
     private Button infoButton;
     private Button codeButton;
+    private UserSetting userSetting;
 
     private UserSetting userSetting;
 

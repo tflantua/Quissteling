@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout>
+    <data>
+        <variable
+            name="score"
+            type="com.bijgepast.quissteling.UserSetting" />
+    </data>
 
     <data>
 
