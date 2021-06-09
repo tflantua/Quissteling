@@ -1,19 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Quissteling</string>
     <string name="preference_file_key">com.bijgepast.quissteling_setting</string>
-    <string name="usernameHint">Vul hier je username in</string>
-    <string name="quisstelingLabel">De Quissteling</string>
+    <string name="usernameHint">Enter a username</string>
+    <string name="quisstelingLabel">The Quissteling</string>
     <string name="log_inButton">Log in</string>
     <string name="title_activity_leader_board">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_score_bord">score bord</string>
-    <string name="title_myPrizes">Mijn prijzen</string>
+    <string name="title_myPrizes">My prizes</string>
     <string name="go_back"><![CDATA[<-]]></string>
     <string name="FillInCode">code</string>
     <string name="Info">I</string>
     <string name="score">Score</string>
-    <string name="place">Plaats</string>
-    <string name="username">Gebruikersnaam</string>
+    <string name="place">Ranking</string>
+    <string name="username">Username</string>
 </resources>

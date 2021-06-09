@@ -28,7 +28,7 @@ public class PopUpClass {
     public void show() {
         //Create a View object.
         LayoutInflater inflater = (LayoutInflater) this.view.getContext().getSystemService(this.view.getContext().LAYOUT_INFLATER_SERVICE);
-        /**
+        /*
          * In de resource kan je de 2 buttons aanmaken. Deze buttons moeten altijd hetzelfde id hebben
          * id/closeButton
          * id/okButton
