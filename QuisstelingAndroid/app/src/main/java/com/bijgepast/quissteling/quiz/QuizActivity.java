@@ -37,7 +37,6 @@ public class QuizActivity extends AppCompatActivity {
         this.answer3 = findViewById(R.id.answer3);
         this.answer4 = findViewById(R.id.answer4);
         this.backButton = findViewById(R.id.goBack);
-        this.homeButtonAfterQuiz = findViewById(R.id.homeButtonAfterQuiz);
 
         //Onclick listeners
         this.answer1.setOnClickListener(v -> {
@@ -54,9 +53,6 @@ public class QuizActivity extends AppCompatActivity {
         });
         this.backButton.setOnClickListener(v -> {
             onBackPressed();
-        });
-        this.homeButtonAfterQuiz.setOnClickListener(v -> {
-            closeQuizActivity();
         });
     }
 
