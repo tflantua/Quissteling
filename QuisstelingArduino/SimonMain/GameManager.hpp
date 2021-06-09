@@ -24,7 +24,7 @@ int buttonPin4;
     void PressedButton(int button, int ledPin);
   public:
     void Start(int ledPin1, int ledPin2, int ledPin3, int ledPin4);
-    void GenerateQuizCode();
+    String GenerateQuizCode();
     void ShowQuizCode();
     void RunGame(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4);
     GameManager();

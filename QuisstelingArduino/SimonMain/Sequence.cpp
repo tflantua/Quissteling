@@ -80,5 +80,16 @@
       int getProgress() {
         return progress;
       }
+
+      int getSize() {
+        Serial.print("Returning sequence size: ");
+        Serial.println(sizeof(numberOrderArray)/sizeof(*numberOrderArray));
+        return sizeof(numberOrderArray)/sizeof(*numberOrderArray);
+      }
+
+      void Reset() {
+        GenerateSequence();
+        progress = 0;
+      }
   };
 #endif

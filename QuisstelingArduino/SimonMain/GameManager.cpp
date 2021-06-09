@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include "GameManager.hpp"
-#include "Sequence.cpp"
 
  GameManager::GameManager() {
  }
@@ -26,7 +25,22 @@
       delay(500);
       sequence.ResetBlinkAll(ledPin1, ledPin2, ledPin3, ledPin4);
       delay(500);
-      sequence.StartSequence(ledPin1, ledPin2, ledPin3, ledPin4);
+
+      // then check if this correct sequence was the final one
+      if (sequence.getProgress() == sequence.getSize()) {
+        // Show the quiz code
+        ShowQuizCode();
+        
+        // reset the sequence and player input
+        sequence.Reset();
+        ClearPlayerInput();
+
+        // start the new sequence
+        sequence.StartSequence(ledPin1, ledPin2, ledPin3, ledPin4);
+      } else {
+        // if the sequence isn't complete yet, start it again with an increased length
+        sequence.StartSequence(ledPin1, ledPin2, ledPin3, ledPin4);
+      }
       
     } else {
       // if the sequence isn't equal then read new inputs
@@ -78,12 +92,16 @@ void GameManager::PressedButton(int button, int ledPin) {
         delay(1000);
 }
 
- void GameManager::GenerateQuizCode() {
-
+ String GameManager::GenerateQuizCode() {
+    return "1234";
  }
 
  void GameManager::ShowQuizCode() {
-
+  // generate the code
+    String quizCode = GenerateQuizCode();
+    // show the code
+    Serial.println("Showing quiz code and locking the minigame");
+    delay(10000);
  }
 
  void GameManager::ClearPlayerInput() {
