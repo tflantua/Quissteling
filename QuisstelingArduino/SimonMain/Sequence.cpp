@@ -1,4 +1,4 @@
-#include "Led.cpp"
+#include <Arduino.h>
 #ifndef SEQUENCE_CPP
 #define SEQUENCE_CPP
   class Sequence {
@@ -7,9 +7,14 @@
       int progress;
 
       void GenerateSequence() {
+        Serial.print("Sequence: ");
         for (int i = 0; i < 5; i++) {
           numberOrderArray[i] = rand() % 4;
+          Serial.print(numberOrderArray[i]);
+          Serial.print(" ");
         }
+        
+        Serial.println("");
       }
 
     public: 
@@ -18,29 +23,62 @@
         progress = 0;
       }
       
-      void StartSequence(Led leds[]) {
+      void StartSequence(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
+        Serial.println("Playing a sequence");
           for (int i = 0; i <= progress; i++) {
-            leds[numberOrderArray[i]].turnOn();
+            Serial.print("Showing sequence part ");
+            Serial.print(i);
+            Serial.print(" Of ");
+            Serial.print(progress);
+            
+            if (numberOrderArray[i] == 0) {
+              digitalWrite(ledPin1, HIGH);
+              Serial.println(", showed led 1");           
+            }
+            if (numberOrderArray[i] == 1) {
+              digitalWrite(ledPin2, HIGH);
+              Serial.println(", showed led 2");                 
+            }
+            if (numberOrderArray[i] == 2) {
+              digitalWrite(ledPin3, HIGH);  
+              Serial.println(", showed led 3");                
+            }
+            if (numberOrderArray[i] == 3) {
+              digitalWrite(ledPin4, HIGH);     
+              Serial.println(", showed led 4");             
+            }
+
+            // give a small delay before turning the leds off and starting the new led
             delay(1000);
-            leds[numberOrderArray[i]].turnOff();
-            delay(1000);
+            ResetBlinkAll(ledPin1, ledPin2, ledPin3, ledPin4);
           }
           progress++;
           if (progress >= sizeof(numberOrderArray)) progress = 0;
+      }
 
-//          leds[0].turnOn();
-//          leds[1].turnOn();
-//          leds[2].turnOn();
-//          leds[3].turnOn();
-//
-//          delay(2000);
-//
-//          leds[0].turnOff();
-//          leds[1].turnOff();
-//          leds[2].turnOff();
-//          leds[3].turnOff();
-//
-//          delay(2000);
+      boolean isInputEqualToSequence(int input[5]) {
+        for (int i = 0; i < progress; i++) {
+          if (input[i] != numberOrderArray[i]) return false;
+        }
+        return true;
+      }
+
+      void BlinkAll(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
+        digitalWrite(ledPin1, HIGH);
+        digitalWrite(ledPin2, HIGH);
+        digitalWrite(ledPin3, HIGH);
+        digitalWrite(ledPin4, HIGH);
+      }
+
+      void ResetBlinkAll(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
+        digitalWrite(ledPin1, LOW);
+        digitalWrite(ledPin2, LOW);
+        digitalWrite(ledPin3, LOW);
+        digitalWrite(ledPin4, LOW);
+      }
+
+      int getProgress() {
+        return progress;
       }
   };
 #endif

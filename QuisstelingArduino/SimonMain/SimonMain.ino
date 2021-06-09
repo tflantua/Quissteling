@@ -1,5 +1,4 @@
 #include "GameManager.hpp"
-#include "Led.cpp"
 
 int ledPin1 = 15;
 int ledPin2 = 2;
@@ -13,20 +12,26 @@ int buttonPin4 = 22;
 
 int buzzerPin = 23;
 
-GameManager gameManager(ledPin1, ledPin2, ledPin3, ledPin4);
+GameManager gameManager;
 
 void setup() {
-  // put your setup code here, to run once:
-//  Led led1(ledPin1);
-//  Led led2(ledPin2);
-//  Led led3(ledPin3);
-//  Led led4(ledPin4);
+  Serial.begin(115200);
+  Serial.println("Starting");
 
-//  Led led[4]{led1, led2, led3, led4};
-//  Gamemanager gameManager;
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(ledPin4, OUTPUT);
+  pinMode(buttonPin1, INPUT);
+  pinMode(buttonPin2, INPUT);
+  pinMode(buttonPin3, INPUT);
+  pinMode(buttonPin4, INPUT);
+
+  gameManager.Start(ledPin1, ledPin2, ledPin3, ledPin4);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  gameManager.RunGame();
+  gameManager.RunGame(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4);
+  delay(100);
 }
