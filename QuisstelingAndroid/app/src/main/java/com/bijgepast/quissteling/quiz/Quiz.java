@@ -57,6 +57,7 @@ public class Quiz {
 
     public ArrayList<String> answers() {
         HashMap<String, Boolean> answers = this.locations.get(Integer.parseInt(locationId) - 1).getQuestions().get(Integer.parseInt(questionId) - 1).getAnswers();
+        this.answers.clear();
         this.answers.addAll(answers.keySet());
 
         return this.answers;

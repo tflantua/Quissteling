@@ -10,6 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bijgepast.quissteling.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
@@ -48,11 +49,11 @@ public class SecondActivity extends AppCompatActivity {
         });
 
         this.infoButton.setOnClickListener(view -> {
-            //TODO Popupscreen voor info
+            new PopUpClass(view, R.layout.popup_info, this).show();
         });
 
         this.codeButton.setOnClickListener(view -> {
-            //TODO Popupscreen voor code in te vullen
+            new PopUpClass(view, R.layout.popup_insertcode, this).show();
         });
 
     }
