@@ -12,6 +12,11 @@ int buttonPin4 = 22;
 
 int buzzerPin = 23;
 
+// Location id in the theme park and max possible questions at the location, used for generating quiz codes.
+// In actual implementation linked through networking
+int deviceLocationId = 00;
+int maxPossibleQuestions = 6;
+
 GameManager gameManager;
 
 void setup() {
@@ -32,6 +37,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  gameManager.RunGame(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4);
+  gameManager.RunGame(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4, deviceLocationId, maxPossibleQuestions);
   delay(100);
 }

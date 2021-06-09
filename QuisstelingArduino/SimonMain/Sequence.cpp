@@ -53,7 +53,6 @@
             ResetBlinkAll(ledPin1, ledPin2, ledPin3, ledPin4);
           }
           progress++;
-          if (progress >= sizeof(numberOrderArray)) progress = 0;
       }
 
       boolean isInputEqualToSequence(int input[5]) {
