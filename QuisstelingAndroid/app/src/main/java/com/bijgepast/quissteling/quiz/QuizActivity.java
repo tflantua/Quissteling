@@ -6,6 +6,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+
 import com.bijgepast.quissteling.InitQuestion;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
@@ -18,6 +19,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button answer3;
     private Button answer4;
     private Button backButton;
+    private Button homeButtonAfterQuiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +37,30 @@ public class QuizActivity extends AppCompatActivity {
         this.answer3 = findViewById(R.id.answer3);
         this.answer4 = findViewById(R.id.answer4);
         this.backButton = findViewById(R.id.goBack);
+        this.homeButtonAfterQuiz = findViewById(R.id.homeButtonAfterQuiz);
 
         //Onclick listeners
         this.answer1.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer1.getText().toString()));
+            System.out.println(quiz.checkAnswer(this.answer1.getText().toString(), v, this));
         });
         this.answer2.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer2.getText().toString()));
+            System.out.println(quiz.checkAnswer(this.answer2.getText().toString(), v, this));
         });
         this.answer3.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer3.getText().toString()));
+            System.out.println(quiz.checkAnswer(this.answer3.getText().toString(), v, this));
         });
         this.answer4.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer4.getText().toString()));
+            System.out.println(quiz.checkAnswer(this.answer4.getText().toString(), v, this));
         });
         this.backButton.setOnClickListener(v -> {
             onBackPressed();
         });
+        this.homeButtonAfterQuiz.setOnClickListener(v -> {
+            closeQuizActivity();
+        });
+    }
+
+    public void closeQuizActivity(){
+        this.finish();
     }
 }

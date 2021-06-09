@@ -16,4 +16,8 @@
     <string name="score">Score</string>
     <string name="place">Plaats</string>
     <string name="username">Gebruikersnaam</string>
+    <string name="correctAnswerText">Je hebt de vraag goed!</string>
+    <string name="correctAnswerScoreText">Je nieuwe score is: </string>
+    <string name="wrongAnswerText">Helaas, je hebt de vraag niet goed!</string>
+    <string name="wrongAnswerScoreText">Je score blijft: </string>
 </resources>
