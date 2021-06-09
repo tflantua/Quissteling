@@ -16,4 +16,14 @@
     <string name="score">Score</string>
     <string name="place">Plaats</string>
     <string name="username">Gebruikersnaam</string>
+    <string name="helpDescription">
+        De Quissteling app geeft een digitale beleving door middel van een quiz. Om de aan de quiz mee te kunnen doen moet een minigame gespeeld worden. Op de kaart kunt u zien waar de minigames te vinden zijn.
+        Na het afronden van een minigame ontvangt u een code. Als u de knop rechtsboven indrukt kunt u deze invullen en beginnen met quizvragen beantwoorden. (Per locatie kunt u één vraag per uur beantwoorden.)
+        <br />
+        <br />
+        Heeft u een vraag goed beantwoord dan krijgt u hier een score voor toegekend. Uw totale score is ook bovenin de navigatiebalk te zien.
+        Wanneer u wilt weten hoe u qua score ervoor staat ten opzichte van andere Quistelling gebruikers dan kunt u op de knop linksboven drukken om het leaderboard op te roepen.
+        Hier vindt u tevens de prijzen die u eventueel al gewonnen heeft. Prijzen worden uitgereikt naar aanleiding van de scores aan het einde van de dag uitgereikt.
+        Daarnaast heeft u ook een kleine kans om een prijs te winnen na het goed beantwoorden van een quizvraag.</string>
+    <string name="close">sluiten</string>
 </resources>
