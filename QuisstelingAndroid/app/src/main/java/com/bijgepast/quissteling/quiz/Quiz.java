@@ -31,7 +31,16 @@ public class Quiz {
     }
 
     public String getQuestion() {
-        return this.locations.get(Integer.parseInt(locationId) - 1).getQuestions().get(Integer.parseInt(questionId) - 1).getQuestion();
+        Location location;
+        int locationId = Integer.parseInt(this.locationId) - 1;
+        int questionId = Integer.parseInt(this.questionId) - 1;
+
+        if (this.locations.size() - 1 >= locationId) {
+            location = this.locations.get(locationId);
+            if (location.getQuestions().size() - 1 >= questionId)
+                return location.getQuestions().get(questionId).getQuestion();
+        }
+        return "";
     }
 
     public ArrayList<String> answers() {
@@ -39,5 +48,13 @@ public class Quiz {
         this.answers.addAll(answers.keySet());
 
         return this.answers;
+    }
+
+    public boolean checkAnswer(String answer) {
+        HashMap<String, Boolean> answers = this.locations.get(Integer.parseInt(locationId) - 1).getQuestions().get(Integer.parseInt(questionId) - 1).getAnswers();
+
+        if (answers.containsKey(answer)) return answers.get(answer);
+
+        return false;
     }
 }
