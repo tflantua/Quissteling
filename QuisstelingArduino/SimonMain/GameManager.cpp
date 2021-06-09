@@ -3,15 +3,12 @@
 #include "Led.cpp"
 
 
- GameManager::GameManager(Led ledArray[]) {
+ GameManager::GameManager(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
     Sequence sequence();
-//    for (int i = 0; i < sizeof(ledArray); i++) {
-//      leds[i] = ledArray[i];
-//    }
-    leds[0] = Led(15);
-    leds[1] = Led(2);
-    leds[2] = Led(4);
-    leds[3] = Led(5);
+    leds[0] = Led(ledPin1);
+    leds[1] = Led(ledPin2);
+    leds[2] = Led(ledPin3);
+    leds[3] = Led(ledPin4);
  }
  void GameManager::RunGame() {
    sequence.StartSequence(leds);

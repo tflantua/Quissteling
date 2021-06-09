@@ -15,6 +15,6 @@ class GameManager {
     void GenerateQuizCode();
     void ShowQuizCode();
     void RunGame();
-    GameManager(Led[]);
+    GameManager(int ledPin1, int ledPin2, int ledPin3, int ledPin4);
 };
 #endif

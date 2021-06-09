@@ -13,17 +13,17 @@ int buttonPin4 = 22;
 
 int buzzerPin = 23;
 
-GameManager gameManager = NULL;
+GameManager gameManager(ledPin1, ledPin2, ledPin3, ledPin4);
 
 void setup() {
   // put your setup code here, to run once:
-  Led led1(ledPin1);
-  Led led2(ledPin2);
-  Led led3(ledPin3);
-  Led led4(ledPin4);
+//  Led led1(ledPin1);
+//  Led led2(ledPin2);
+//  Led led3(ledPin3);
+//  Led led4(ledPin4);
 
-  Led led[4]{led1, led2, led3, led4};
-  GameManager gameManager(led);
+//  Led led[4]{led1, led2, led3, led4};
+//  Gamemanager gameManager;
 }
 
 void loop() {
