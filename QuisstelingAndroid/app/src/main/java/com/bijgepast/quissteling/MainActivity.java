@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.userSetting = new UserSetting(this);
         //this.userSetting.remove();
+        InitQuestion.add();
 
         if (userSetting.exists()) {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

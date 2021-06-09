@@ -16,6 +16,9 @@
     <string name="score">Score</string>
     <string name="place">Plaats</string>
     <string name="username">Gebruikersnaam</string>
+    <string name="popup_close">Sluiten</string>
+    <string name="popup_codeinvoer">Voer de vraagcode in:</string>
+    <string name="popup_submit">Invoeren</string>
     <string name="helpDescription">
         De Quissteling app geeft een digitale beleving door middel van een quiz. Om de aan de quiz mee te kunnen doen moet een minigame gespeeld worden. Op de kaart kunt u zien waar de minigames te vinden zijn.
         Na het afronden van een minigame ontvangt u een code. Als u de knop rechtsboven indrukt kunt u deze invullen en beginnen met quizvragen beantwoorden. (Per locatie kunt u één vraag per uur beantwoorden.)

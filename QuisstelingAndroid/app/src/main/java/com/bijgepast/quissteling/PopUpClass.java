@@ -1,12 +1,17 @@
 package com.bijgepast.quissteling;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.Toast;
+
+import com.bijgepast.quissteling.quiz.QuizActivity;
 
 public class PopUpClass {
     private final View view;
@@ -58,7 +63,25 @@ public class PopUpClass {
         }
 
         if (okButton != null) {
-            okButton.setOnClickListener(okOnClickListener);
+            okButton.setOnClickListener(v -> {
+                EditText code = popupView.findViewById(R.id.editTextNumber);
+                System.out.println(code.getText().toString());
+                String codeString = code.getText().toString();
+
+                if (codeString.length() != 4) {
+                    Toast.makeText(context, "De lengte van de cijferreeks is niet correct",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        InitQuestion.quiz.setId(codeString);
+                        Intent intent = new Intent(context, QuizActivity.class);
+                        context.startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
     }
 }
