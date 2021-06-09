@@ -16,4 +16,7 @@
     <string name="score">Score</string>
     <string name="place">Plaats</string>
     <string name="username">Gebruikersnaam</string>
+    <string name="popup_close">Close</string>
+    <string name="popup_codeinvoer">Voer de vraagcode in:</string>
+    <string name="popup_submit">Submit</string>
 </resources>
