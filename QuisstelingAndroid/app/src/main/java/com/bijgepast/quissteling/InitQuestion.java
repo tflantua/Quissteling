@@ -5,9 +5,9 @@ import com.bijgepast.quissteling.quiz.Question;
 import com.bijgepast.quissteling.quiz.Quiz;
 
 public class InitQuestion {
+    public static Quiz quiz = new Quiz();
 
-    public static Quiz add() {
-        Quiz quiz = new Quiz();
+    public static void add() {
         try {
             Location location = new Location("01", "Roodkapje");
             Question question = new Question("01", "Wat is blablabla");
@@ -22,6 +22,5 @@ public class InitQuestion {
             e.printStackTrace();
             ;
         }
-        return quiz;
     }
 }

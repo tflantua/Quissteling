@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -17,12 +16,13 @@
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topBanner">
 
             <Button
                 android:id="@+id/closeButton"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:text="@string/popup_close"
@@ -47,23 +47,24 @@
                 android:id="@+id/editTextNumber"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
                 android:layout_marginTop="10dp"
                 android:ems="10"
-                android:textAlignment="center"
                 android:inputType="number"
-                android:layout_marginStart="100dp"
                 android:maxLength="4"
+                android:backgroundTint="@color/black"
+                android:textAlignment="center"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/test"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/test" />
 
 
             <Button
                 android:id="@+id/okButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:text="@string/popup_submit"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -75,11 +76,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:text="Incorrecte code"
                 android:textColor="@color/EsstelingPrimary"
-                android:visibility="invisible"
                 android:textSize="21sp"
                 android:textStyle="bold"
-                android:text="Incorrecte code"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editTextNumber"
                 app:layout_constraintTop_toBottomOf="@+id/closeButton" />

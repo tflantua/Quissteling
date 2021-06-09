@@ -21,9 +21,21 @@ public class Quiz {
         this.answers = new ArrayList<>();
     }
 
-    public void setId(String id) {
-        this.locationId = id.substring(0, 2);
-        this.questionId = id.substring(2);
+    public void setId(String id) throws Exception {
+        int locationId = Integer.parseInt(id.substring(0, 2)) - 1;
+        int questionId = Integer.parseInt(id.substring(2)) - 1;
+        Location location;
+
+        if (this.locations.size() - 1 >= locationId) {
+            location = this.locations.get(locationId);
+            if (location.getQuestions().size() - 1 >= questionId) {
+                this.locationId = id.substring(0, 2);
+                this.questionId = id.substring(2);
+                return;
+            }
+            throw new Exception("De ingevulde code is niet correct");
+        }
+        throw new Exception("De ingevulde code is niet correct");
     }
 
     public void addLocation(Location location) {

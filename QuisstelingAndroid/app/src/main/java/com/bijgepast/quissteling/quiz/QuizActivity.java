@@ -23,9 +23,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityQuizBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_quiz);
-        String id = getIntent().getExtras().getString(EXTRA_QUIZ_ID);
-        Quiz quiz = InitQuestion.add();
-        quiz.setId(id);
+        Quiz quiz = InitQuestion.quiz;
         binding.setData(quiz);
         binding.setScore(new UserSetting(this));
 
