@@ -10,6 +10,8 @@ import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 
+import java.time.LocalTime;
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {
     private final SharedPreferences sharedPref;
@@ -18,6 +20,8 @@ public class UserSetting {
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
     private final String DONE_TODAY = "done_today";
+    private final String HOURS = "hours";
+    private final String MINS = "minutes";
 
     private PrizeAwarding prizeAwarding;
     //TODO get leaderboard from json and place in constructor above
@@ -72,6 +76,17 @@ public class UserSetting {
 
     public boolean getDoneToday() {
         return this.sharedPref.getBoolean(this.DONE_TODAY, true);
+    }
+
+    public void setLastDate(LocalTime time){
+        this.sharedPref.edit().putInt(this.HOURS, time.getHour()).apply();
+        this.sharedPref.edit().putInt(this.MINS, time.getMinute()).apply();
+    }
+
+    public LocalTime getLastDate(){
+        int hours = this.sharedPref.getInt(this.HOURS, 0);
+        int minutes = this.sharedPref.getInt(this.MINS, 0);
+        return LocalTime.of(hours + 1, minutes);
     }
 
     public PrizeAwarding getPrizeAwarding() {
