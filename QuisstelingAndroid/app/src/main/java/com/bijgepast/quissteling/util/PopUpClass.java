@@ -101,6 +101,7 @@ public class PopUpClass {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void show(View view) {
         //Create a View object.
         /**
@@ -147,9 +148,14 @@ public class PopUpClass {
                             Toast.LENGTH_LONG).show();
                 } else {
                     try {
-                        InitQuestion.quiz.setId(code.getText().toString());
-                        Intent intent = new Intent(context, QuizActivity.class);
-                        context.startActivity(intent);
+                        UserSetting userSetting = new UserSetting(context);
+                        if (LocalTime.now().isAfter(userSetting.getLastDate())){
+                            Intent intent = new Intent(context, QuizActivity.class);
+                            context.startActivity(intent);
+                            userSetting.setLastDate(LocalTime.now());
+                        } else {
+                            Toast.makeText(context, "U heeft deze locatie laats nog gebruikt", Toast.LENGTH_LONG).show();
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
