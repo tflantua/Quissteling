@@ -1,8 +1,10 @@
 package com.bijgepast.quissteling.secondScreen;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
@@ -10,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.util.UserSetting;
@@ -25,6 +28,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private UserSetting userSetting;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,6 @@ public class SecondActivity extends AppCompatActivity {
             new PopUpClass(view, R.layout.popup_insertcode, this).show();
         });
 
+        userSetting.getPrizeAwarding().checkTime();
     }
-
 }
