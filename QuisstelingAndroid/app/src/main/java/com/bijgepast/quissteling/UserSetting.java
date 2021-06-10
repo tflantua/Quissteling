@@ -6,6 +6,8 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.bijgepast.quissteling.secondScreen.LeaderBoard;
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {
     private final SharedPreferences sharedPref;
@@ -13,7 +15,8 @@ public class UserSetting {
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
 
-    private final PrizeAwarding prizeAwarding = new PrizeAwarding(); //TODO get leaderboard and place in constructor
+    private final PrizeAwarding prizeAwarding = new PrizeAwarding(new LeaderBoard("1", "Jochem", 99999));
+    //TODO get leaderboard from json and place in constructor above
 
     public UserSetting(Context context) {
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
