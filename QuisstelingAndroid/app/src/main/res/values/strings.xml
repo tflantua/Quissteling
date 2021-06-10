@@ -26,4 +26,7 @@
         Hier vindt u tevens de prijzen die u eventueel al gewonnen heeft. Prijzen worden uitgereikt naar aanleiding van de scores aan het einde van de dag uitgereikt.
         Daarnaast heeft u ook een kleine kans om een prijs te winnen na het goed beantwoorden van een quizvraag.</string>
     <string name="close">sluiten</string>
+    <string name="prijs">Prijs</string>
+    <string name="beschrijving">Beschrijving</string>
+    <string name="plaats_nodig">Plaats nodig</string>
 </resources>
