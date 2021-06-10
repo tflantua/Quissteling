@@ -11,9 +11,10 @@ import androidx.databinding.DataBindingUtil;
 
 import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
+import com.bijgepast.quissteling.util.PopUpClass;
+import com.bijgepast.quissteling.util.UserSetting;
 
 public class HomeActivity extends AppCompatActivity {
 
