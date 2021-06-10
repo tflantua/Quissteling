@@ -64,8 +64,22 @@ public class PopUpClass {
         }
 
         if (this.okOnClickListener == null) {
-            this.okOnClickListener = view1 -> {
+            this.okOnClickListener = v -> {
+                EditText code = popupView.findViewById(R.id.editTextNumber);
 
+                if (code.getText().toString().length() != 4) {
+                    Toast.makeText(context, "De lengte van de cijferreeks is niet correct",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    try {
+                        InitQuestion.quiz.setId(code.getText().toString());
+                        Intent intent = new Intent(context, QuizActivity.class);
+                        context.startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
+                    }
+                }
             };
         }
 
@@ -111,18 +125,16 @@ public class PopUpClass {
             closeButton.setOnClickListener(v -> popupWindow.dismiss());
         }
 
-        if (okButton != null) {
-            okButton.setOnClickListener(v -> {
+        if (this.okOnClickListener == null) {
+            this.okOnClickListener = v -> {
                 EditText code = popupView.findViewById(R.id.editTextNumber);
-                System.out.println(code.getText().toString());
-                String codeString = code.getText().toString();
 
-                if (codeString.length() != 4) {
+                if (code.getText().toString().length() != 4) {
                     Toast.makeText(context, "De lengte van de cijferreeks is niet correct",
                             Toast.LENGTH_LONG).show();
                 } else {
                     try {
-                        InitQuestion.quiz.setId(codeString);
+                        InitQuestion.quiz.setId(code.getText().toString());
                         Intent intent = new Intent(context, QuizActivity.class);
                         context.startActivity(intent);
                     } catch (Exception e) {
@@ -130,7 +142,11 @@ public class PopUpClass {
                         Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
                     }
                 }
-            });
+            };
+        }
+
+        if (okButton != null) {
+            okButton.setOnClickListener(okOnClickListener);
         }
     }
 }

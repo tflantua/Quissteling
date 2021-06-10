@@ -39,7 +39,7 @@ public class InitQuestion {
             question.addAnswer(false, "Haar zus");
             location.addQuestion(question);
 
-            question = new Question("05", "Wat is de haarkleur van Roodkapje?");
+            question = new Question("05", "Wat is Roodkapje in het engels?");
             question.addAnswer(false, "Red Cap");
             question.addAnswer(false, "Girl in red");
             question.addAnswer(true, "Red Riding Hood");
