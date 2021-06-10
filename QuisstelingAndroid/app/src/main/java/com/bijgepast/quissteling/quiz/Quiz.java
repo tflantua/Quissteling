@@ -1,5 +1,17 @@
 package com.bijgepast.quissteling.quiz;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
+import com.bijgepast.quissteling.HomeActivity.HomeActivity;
+import com.bijgepast.quissteling.PopUpClass;
+import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.UserSetting;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -63,11 +75,37 @@ public class Quiz {
         return this.answers;
     }
 
-    public boolean checkAnswer(String answer) {
+    @SuppressLint("SetTextI18n")
+    public void checkAnswer(String answer, View view, Context context) {
         HashMap<String, Boolean> answers = this.locations.get(Integer.parseInt(locationId) - 1).getQuestions().get(Integer.parseInt(questionId) - 1).getAnswers();
+        LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.popup_quizanswerscore, null);
+        UserSetting userSetting = new UserSetting(context);
 
-        if (answers.containsKey(answer)) return answers.get(answer);
+        if (answers.containsKey(answer)) {
+            if (answers.get(answer)) {
+                TextView topText = v.findViewById(R.id.answerpopuptext);
+                topText.setText(context.getString(R.string.correctAnswerText));
+                userSetting.addScore(100);
+                TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
+                bottomText.setText(context.getString(R.string.correctAnswerScoreText) + userSetting.getScore());
+            } else {
+                TextView topText = v.findViewById(R.id.answerpopuptext);
+                topText.setText(context.getString(R.string.wrongAnswerText));
+                TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
+                bottomText.setText(context.getString(R.string.wrongAnswerScoreText) + userSetting.getScore());
+            }
+        } else {
+            TextView topText = v.findViewById(R.id.answerpopuptext);
+            topText.setText(context.getString(R.string.wrongAnswerText));
+            TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
+            bottomText.setText(context.getString(R.string.wrongAnswerScoreText) + userSetting.getScore());
+        }
 
-        return false;
+        new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
+            Intent intent = new Intent(context, HomeActivity.class);
+            ((QuizActivity) context).startActivity(intent);
+        }).show(v);
+
     }
 }

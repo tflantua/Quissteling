@@ -18,6 +18,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button answer3;
     private Button answer4;
     private Button backButton;
+    private Button homeButtonAfterQuiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +37,23 @@ public class QuizActivity extends AppCompatActivity {
 
         //Onclick listeners
         this.answer1.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer1.getText().toString()));
+            quiz.checkAnswer(this.answer1.getText().toString(), v, this);
         });
         this.answer2.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer2.getText().toString()));
+            quiz.checkAnswer(this.answer2.getText().toString(), v, this);
         });
         this.answer3.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer3.getText().toString()));
+            quiz.checkAnswer(this.answer3.getText().toString(), v, this);
         });
         this.answer4.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer4.getText().toString()));
+            quiz.checkAnswer(this.answer4.getText().toString(), v, this);
         });
         this.backButton.setOnClickListener(v -> {
             onBackPressed();
         });
+    }
+
+    public void closeQuizActivity() {
+        this.finish();
     }
 }

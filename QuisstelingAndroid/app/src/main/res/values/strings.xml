@@ -29,4 +29,8 @@
         Hier vindt u tevens de prijzen die u eventueel al gewonnen heeft. Prijzen worden uitgereikt naar aanleiding van de scores aan het einde van de dag uitgereikt.
         Daarnaast heeft u ook een kleine kans om een prijs te winnen na het goed beantwoorden van een quizvraag.</string>
     <string name="close">sluiten</string>
+    <string name="correctAnswerText">Je hebt de vraag goed!</string>
+    <string name="correctAnswerScoreText">Je nieuwe score is: </string>
+    <string name="wrongAnswerText">Helaas, je hebt de vraag niet goed!</string>
+    <string name="wrongAnswerScoreText">Je score blijft: </string>
 </resources>
