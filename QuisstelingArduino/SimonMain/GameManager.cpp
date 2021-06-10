@@ -9,11 +9,11 @@
     sequence.StartSequence(ledPin1, ledPin2, ledPin3, ledPin4);
   }
  
- void GameManager::RunGame(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions) {
-   CheckPlayerInput(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4, deviceLocationId, maxPossibleQuestions);
+ void GameManager::RunGame(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd) {
+   CheckPlayerInput(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4, deviceLocationId, maxPossibleQuestions, lcd);
  }
 
- void GameManager::CheckPlayerInput(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions) {
+ void GameManager::CheckPlayerInput(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd) {
     // first check if the input is already equal to the sequence
     if (sequence.isInputEqualToSequence(playerInput)) {
       // clear the player input, make the leds all blink and set a delay in before the program can resume
@@ -30,7 +30,7 @@
       // then check if this correct sequence was the final one
       if (sequence.getProgress() == sequence.getSize()) {
         // Show the quiz code
-        ShowQuizCode(deviceLocationId, maxPossibleQuestions);
+        ShowQuizCode(deviceLocationId, maxPossibleQuestions, lcd);
         
         // reset the sequence and player input
         sequence.Reset();
@@ -106,14 +106,17 @@ void GameManager::PressedButton(int button, int ledPin) {
   return s;
  }
 
- void GameManager::ShowQuizCode(int deviceLocationId, int maxPossibleQuestions) {
+ void GameManager::ShowQuizCode(int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd) {
   // generate the code
     String quizCode = GenerateQuizCode(deviceLocationId, maxPossibleQuestions);
     Serial.print("Generated code: ");
     Serial.println(quizCode);
     // show the code
+    lcd.setCursor(0,0);
+    lcd.print(quizCode);
     Serial.println("Showing quiz code and locking the minigame");
     delay(10000);
+    lcd.clear();
     Serial.println("Done showing the quiz code");
  }
 
