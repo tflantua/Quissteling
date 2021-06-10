@@ -1,16 +1,20 @@
 package com.bijgepast.quissteling.HomeActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.bijgepast.quissteling.PopUpClass;
+import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
+import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -20,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button codeButton;
     private UserSetting userSetting;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,5 +51,8 @@ public class HomeActivity extends AppCompatActivity {
                 //TODO zorg ervoor dat hierin de functie word aangeroepen op de code te controleren.
             }).show();
         });
+
+        PrizeAwarding prizeAwarding = new PrizeAwarding(); //TODO get leaderboard and place in constructor
+        prizeAwarding.checkTime();
     }
 }

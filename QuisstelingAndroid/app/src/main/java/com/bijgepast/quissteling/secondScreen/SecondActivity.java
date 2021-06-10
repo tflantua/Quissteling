@@ -1,8 +1,10 @@
 package com.bijgepast.quissteling.secondScreen;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
@@ -10,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
@@ -24,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private UserSetting userSetting;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +59,7 @@ public class SecondActivity extends AppCompatActivity {
             //TODO Popupscreen voor code in te vullen
         });
 
+        PrizeAwarding prizeAwarding = new PrizeAwarding(); //TODO get leaderboard and place in constructor
+        prizeAwarding.checkTime();
     }
-
 }
