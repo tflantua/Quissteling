@@ -138,14 +138,15 @@ void GameManager::PressedButton(int button, int ledPin) {
  }
 
  void GameManager::ShowProgress(LiquidCrystal_I2C lcd) {
+  Serial.println("Showing on lcd player progress");
   // show progress
   lcd.setCursor(0,1);
   lcd.print(playerProgress);
   lcd.print("/");
   lcd.print(sequence.getProgress());
   // show how many sequences are necessary
-  lcd.print(" (");
+  lcd.print(" (van de: ");
   lcd.print(sequence.getSize());
-  lcd.print(" to win)");
+  lcd.print(")");
   lcd.setCursor(0,0);
  }

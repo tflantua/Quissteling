@@ -36,7 +36,7 @@ void setup() {
   lcd.backlight();
   // show on the lcd that the game is running
   lcd.clear();
-  lcd.print("Simon says game");
+  lcd.print("Simon says spel");
 
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);

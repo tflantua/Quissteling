@@ -82,8 +82,6 @@
       }
 
       int getSize() {
-        Serial.print("Returning sequence size: ");
-        Serial.println(sizeof(numberOrderArray)/sizeof(*numberOrderArray));
         return sizeof(numberOrderArray)/sizeof(*numberOrderArray);
       }
 
@@ -92,8 +90,8 @@
         progress = 0;
 
         // show on the lcd that the game is running
-  lcd.clear();
-  lcd.print("Simon says game");
+        lcd.clear();
+        lcd.print("Simon says spel");
       }
   };
 #endif
