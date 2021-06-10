@@ -35,11 +35,13 @@ public class PrizeAwarding {
 
     private void awardPrize(){
         if (leaderBoard.getPlace().equals("1")){
-            //TODO award prize.
+            userSetting.setPrize1(true);
         } else if (leaderBoard.getPlace().equals("2")){
-            //TODO award prize.
+            userSetting.setPrize2(true);
         } else if (leaderBoard.getPlace().equals("3")){
-            //TODO award prize.
+            userSetting.setPrize3(true);
+        } else if (leaderBoard.getPlace().equals("4")){
+            userSetting.setPrize4(true);
         }
     }
 }

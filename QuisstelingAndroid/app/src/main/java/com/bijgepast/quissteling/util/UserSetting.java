@@ -18,6 +18,11 @@ public class UserSetting {
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
     private final String DONE_TODAY = "done_today";
+    private final String PRIZE1 = "prize1";
+    private final String PRIZE2 = "prize2";
+    private final String PRIZE3 = "prize3";
+    private final String PRIZE4 = "prize4";
+    private final String PRIZE5 = "prize5";
 
     private PrizeAwarding prizeAwarding;
     //TODO get leaderboard from json and place in constructor above
@@ -72,6 +77,46 @@ public class UserSetting {
 
     public boolean getDoneToday() {
         return this.sharedPref.getBoolean(this.DONE_TODAY, true);
+    }
+
+    public void setPrize1(boolean owned) {
+        this.sharedPref.edit().putBoolean(this.PRIZE1, owned);
+    }
+
+    public boolean getPrize1() {
+        return this.sharedPref.getBoolean(this.PRIZE1, false);
+    }
+
+    public void setPrize2(boolean owned) {
+        this.sharedPref.edit().putBoolean(this.PRIZE2, owned);
+    }
+
+    public boolean getPrize2() {
+        return this.sharedPref.getBoolean(this.PRIZE2, false);
+    }
+
+    public void setPrize3(boolean owned) {
+        this.sharedPref.edit().putBoolean(this.PRIZE3, owned);
+    }
+
+    public boolean getPrize3() {
+        return this.sharedPref.getBoolean(this.PRIZE3, false);
+    }
+
+    public void setPrize4(boolean owned) {
+        this.sharedPref.edit().putBoolean(this.PRIZE4, owned);
+    }
+
+    public boolean getPrize4() {
+        return this.sharedPref.getBoolean(this.PRIZE4, false);
+    }
+
+    public void setPrize5(boolean owned) {
+        this.sharedPref.edit().putBoolean(this.PRIZE5, owned);
+    }
+
+    public boolean getPrize5() {
+        return this.sharedPref.getBoolean(this.PRIZE5, false);
     }
 
     public PrizeAwarding getPrizeAwarding() {
