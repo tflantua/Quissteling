@@ -2,6 +2,7 @@ package com.bijgepast.quissteling.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.quiz.QuizActivity;
+
+import java.time.LocalTime;
 
 public class PopUpClass {
     private final View view;
@@ -31,6 +36,7 @@ public class PopUpClass {
         this.okOnClickListener = okOnClickListener;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void show() {
         //Create a View object.
         LayoutInflater inflater = (LayoutInflater) this.view.getContext().getSystemService(this.view.getContext().LAYOUT_INFLATER_SERVICE);
@@ -73,8 +79,15 @@ public class PopUpClass {
                 } else {
                     try {
                         InitQuestion.quiz.setId(code.getText().toString());
-                        Intent intent = new Intent(context, QuizActivity.class);
-                        context.startActivity(intent);
+
+                        UserSetting userSetting = new UserSetting(context);
+                        if (LocalTime.now().isAfter(userSetting.getLastDate())){
+                            Intent intent = new Intent(context, QuizActivity.class);
+                            context.startActivity(intent);
+                            userSetting.setLastDate(LocalTime.now());
+                        } else {
+                            Toast.makeText(context, "U heeft deze locatie laats nog gebruikt", Toast.LENGTH_LONG).show();
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
