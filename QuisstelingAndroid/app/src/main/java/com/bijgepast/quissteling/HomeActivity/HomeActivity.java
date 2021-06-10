@@ -2,21 +2,15 @@ package com.bijgepast.quissteling.HomeActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.bijgepast.quissteling.InitQuestion;
-import com.bijgepast.quissteling.PopUpClass;
+import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
-import com.bijgepast.quissteling.quiz.QuizActivity;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
 
 public class HomeActivity extends AppCompatActivity {

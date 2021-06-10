@@ -10,9 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bijgepast.quissteling.HomeActivity.HomeActivity;
-import com.bijgepast.quissteling.MainActivity;
+import com.bijgepast.quissteling.util.MainActivity;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.util.UserSetting;
 
 public class SignInActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();

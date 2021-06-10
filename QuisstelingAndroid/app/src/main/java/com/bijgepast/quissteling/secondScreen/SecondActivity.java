@@ -10,9 +10,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.bijgepast.quissteling.PopUpClass;
+import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
