@@ -1,4 +1,4 @@
-package com.bijgepast.quissteling;
+package com.bijgepast.quissteling.util;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bijgepast.quissteling.HomeActivity.HomeActivity;
+import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.signin.SignInActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.userSetting = new UserSetting(this);
         //this.userSetting.remove();
+        InitQuestion.add();
 
         if (userSetting.exists()) {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

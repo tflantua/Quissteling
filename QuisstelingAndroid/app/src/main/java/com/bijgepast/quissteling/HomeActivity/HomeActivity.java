@@ -12,7 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import com.bijgepast.quissteling.PopUpClass;
 import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
@@ -47,9 +47,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         this.codeButton.setOnClickListener(view -> {
-            new PopUpClass(view, R.layout.popup_insertcode, this, v -> {
-                //TODO zorg ervoor dat hierin de functie word aangeroepen op de code te controleren.
-            }).show();
+            new PopUpClass(view, R.layout.popup_insertcode, this).show();
         });
 
         userSetting.getPrizeAwarding().checkTime();
