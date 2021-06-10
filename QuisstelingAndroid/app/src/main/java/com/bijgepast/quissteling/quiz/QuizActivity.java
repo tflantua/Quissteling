@@ -6,7 +6,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-
 import com.bijgepast.quissteling.InitQuestion;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.UserSetting;
@@ -40,23 +39,23 @@ public class QuizActivity extends AppCompatActivity {
 
         //Onclick listeners
         this.answer1.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer1.getText().toString(), v, this));
+            quiz.checkAnswer(this.answer1.getText().toString(), v, this);
         });
         this.answer2.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer2.getText().toString(), v, this));
+            quiz.checkAnswer(this.answer2.getText().toString(), v, this);
         });
         this.answer3.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer3.getText().toString(), v, this));
+            quiz.checkAnswer(this.answer3.getText().toString(), v, this);
         });
         this.answer4.setOnClickListener(v -> {
-            System.out.println(quiz.checkAnswer(this.answer4.getText().toString(), v, this));
+            quiz.checkAnswer(this.answer4.getText().toString(), v, this);
         });
         this.backButton.setOnClickListener(v -> {
             onBackPressed();
         });
     }
 
-    public void closeQuizActivity(){
+    public void closeQuizActivity() {
         this.finish();
     }
 }

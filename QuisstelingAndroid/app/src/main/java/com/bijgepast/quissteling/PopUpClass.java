@@ -57,6 +57,54 @@ public class PopUpClass {
             closeButton.setOnClickListener(v -> popupWindow.dismiss());
         }
 
+        if (this.okOnClickListener == null) {
+            this.okOnClickListener = view1 -> {
+
+            };
+        }
+
+        if (okButton != null) {
+            okButton.setOnClickListener(okOnClickListener);
+        }
+    }
+
+    public void show(View view) {
+        //Create a View object.
+        /**
+         * In de resource kan je de 2 buttons aanmaken. Deze buttons moeten altijd hetzelfde id hebben
+         * id/closeButton
+         * id/okButton
+         */
+        View popupView = view;
+
+        //Specify the length and width
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.MATCH_PARENT;
+
+        //Make inactive items outsite of popupwindow
+        boolean focusable = true;
+
+        //create a window with our parameters
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+        //set location of popup
+        popupWindow.showAtLocation(this.view, Gravity.CENTER, 0, 0);
+
+        //init buttons
+        Button okButton = popupView.findViewById(R.id.okButton);
+        Button closeButton = popupView.findViewById(R.id.closeButton);
+
+        if (this.okOnClickListener == null) {
+            this.okOnClickListener = view1 -> {
+
+            };
+        }
+
+        //Onclick listeners
+        if (closeButton != null) {
+            closeButton.setOnClickListener(v -> popupWindow.dismiss());
+        }
+
         if (okButton != null) {
             okButton.setOnClickListener(okOnClickListener);
         }

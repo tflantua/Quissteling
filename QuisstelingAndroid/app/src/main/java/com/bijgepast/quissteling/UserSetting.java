@@ -24,6 +24,10 @@ public class UserSetting {
         return sharedPref.contains(USERNAME_KEY) && sharedPref.contains(SCORE_KEY);
     }
 
+    public void addScore(int add) {
+        this.setScore(this.getScore() + add);
+    }
+
     public String getUsername() {
         return sharedPref.getString(USERNAME_KEY, "");
     }
