@@ -3,18 +3,22 @@ package com.bijgepast.quissteling.secondScreen;
 import java.io.Serializable;
 
 public class LeaderBoard implements Serializable {
-    private final String place;
+    private final int place;
     private final String userName;
     private final int score;
 
-    public LeaderBoard(String place, String userName, int score) {
+    public LeaderBoard(int place, String userName, int score) {
         this.place = place;
         this.userName = userName;
         this.score = score;
     }
 
-    public String getPlace() {
+    public String getPlaceString() {
         return place + "";
+    }
+
+    public int getPlace() {
+        return place;
     }
 
     public String getUserName() {

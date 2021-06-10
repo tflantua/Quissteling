@@ -7,11 +7,15 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bijgepast.quissteling.secondScreen.LeaderBoard;
+import com.bijgepast.quissteling.util.IO;
 import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -20,12 +24,17 @@ public class HomeActivity extends AppCompatActivity {
     private Button codeButton;
     private UserSetting userSetting;
 
+    private ArrayList<LeaderBoard> leaderBoards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.userSetting = new UserSetting(this);
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
+        Intent lastIntent = getIntent();
+
+        IO.writeLeaderBoard(leaderBoards);
 
         //init values
         this.leaderBoardButton = findViewById(R.id.leaderBoardButton);

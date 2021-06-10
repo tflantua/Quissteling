@@ -61,4 +61,7 @@ public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.
         return leaderBoards.size();
     }
 
+    public List<LeaderBoard> getLeaderBoards() {
+        return leaderBoards;
+    }
 }

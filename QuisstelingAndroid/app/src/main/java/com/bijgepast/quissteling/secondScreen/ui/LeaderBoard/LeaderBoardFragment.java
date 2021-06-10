@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 import com.bijgepast.quissteling.secondScreen.LeaderBoardAdapter;
+import com.bijgepast.quissteling.util.MainActivity;
 
 import java.util.ArrayList;
 
 public class LeaderBoardFragment extends Fragment {
 
-    private ArrayList<LeaderBoard> leaderBoards;
     private RecyclerView recyclerView;
     private LeaderBoardAdapter leaderBoardAdapter;
 
@@ -31,16 +31,10 @@ public class LeaderBoardFragment extends Fragment {
                 new ViewModelProvider(this).get(LeaderBoardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_leaderboard, container, false);
 
-        this.leaderBoards = new ArrayList<>();
-
         this.recyclerView = root.findViewById(R.id.recyclerViewLeader);
-        this.leaderBoardAdapter = new LeaderBoardAdapter(root.getContext(), this.leaderBoards);
+        this.leaderBoardAdapter = new LeaderBoardAdapter(root.getContext(), MainActivity.getLeaderBoards());
         this.recyclerView.setAdapter(this.leaderBoardAdapter);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
-
-        for (int i = 1; i <= 10; i++) {
-            leaderBoards.add(new LeaderBoard("" + i, "thomas", 100));
-        }
 
         return root;
     }
