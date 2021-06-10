@@ -67,7 +67,6 @@
         PressedButton(1, ledPin1);
         
       } else {
-//        digitalWrite(ledPin1, LOW);
           Led::setValue(ledPin1, false, 1, 0);
       }
 
@@ -75,7 +74,6 @@
         PressedButton(2, ledPin2);
         
       } else {
-//        digitalWrite(ledPin2, LOW);
         Led::setValue(ledPin2, false, 2, 0);
       }
 
@@ -83,7 +81,6 @@
         PressedButton(3, ledPin3);
         
       } else {
-//        digitalWrite(ledPin3, LOW);
         Led::setValue(ledPin3, false, 3, 0);
       }
 
@@ -91,7 +88,6 @@
         PressedButton(4, ledPin4);
         
       } else {
-//        digitalWrite(ledPin4, LOW);
         Led::setValue(ledPin4, false, 4, 0);
       }      
     }
@@ -100,10 +96,8 @@
 void GameManager::PressedButton(int button, int ledPin) {
         Serial.print("Pressed button ");
         Serial.println(button);
-//        digitalWrite(ledPin, HIGH);
         playerInput[playerProgress] = button - 1;
         playerProgress++;
-//        delay(1000);
   Led::setValue(ledPin, true, button, 1000);
 }
 

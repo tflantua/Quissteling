@@ -22,11 +22,11 @@ class Buzzer {
 
   static void ledSound(int ledNum, int delayTime) {
     if (ledNum == 1) {
-      buzz(NOTE_A5, delayTime); 
+      buzz(NOTE_A2, delayTime); 
     } else if (ledNum == 2) {
-      buzz(NOTE_B5, delayTime); 
+      buzz(NOTE_B3, delayTime); 
     } else if (ledNum == 3) {
-      buzz(NOTE_C5, delayTime); 
+      buzz(NOTE_C4, delayTime); 
     } else if (ledNum == 4) {
       buzz(NOTE_D5, delayTime); 
     }
