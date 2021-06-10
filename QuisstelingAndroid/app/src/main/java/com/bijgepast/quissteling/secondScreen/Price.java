@@ -1,6 +1,7 @@
 package com.bijgepast.quissteling.secondScreen;
 
 import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.util.UserSetting;
 
 import java.io.Serializable;
 
@@ -11,18 +12,32 @@ public class Price implements Serializable {
     private final int placeNeeded;
     private final int imageResourceId;
 
-    public Price(String priceName, String priceDescription, int imageResourceId) {
+    private int lock;
+    // 0 = unlocked
+    // 1 = locked
+
+    public Price(String priceName, String priceDescription, int imageResourceId, Boolean lockCheck) {
         this.priceName = priceName;
         this.priceDescription = priceDescription;
         this.placeNeeded = 0;
         this.imageResourceId = imageResourceId;
+        if (lockCheck){
+            this.lock = 0;
+        } else{
+            this.lock = 1;
+        }
     }
 
-    public Price(String priceName, String priceDescription, int placeNeeded, int imageResourceId) {
+    public Price(String priceName, String priceDescription, int placeNeeded, int imageResourceId, Boolean lockCheck) {
         this.priceName = priceName;
         this.priceDescription = priceDescription;
         this.placeNeeded = placeNeeded;
         this.imageResourceId = imageResourceId;
+        if (lockCheck){
+            this.lock = 0;
+        } else{
+            this.lock = 1;
+        }
     }
 
     public String getPriceName() {
@@ -42,6 +57,14 @@ public class Price implements Serializable {
         }
     }
 
+    public int getLock() {
+        return lock;
+    }
+
+    public void setLock(int lock) {
+        this.lock = lock;
+    }
+
     public int getPlaceNeeded() {
         return placeNeeded;
     }
@@ -50,21 +73,6 @@ public class Price implements Serializable {
         return imageResourceId;
     }
 
-    private static final Price[] prices ={
-            new Price("Essteling Roodkapje Sleutelhanger", "Een sleutelhanger van Roodkapje uit het sprookje van Roodkapje.", 4, R.drawable.esstelingsleutelhangerroodkapje),
-            new Price("Essteling Roodkapje Knuffel", "Een knuffel van Roodkapje uit het sprookje van Roodkapje.", 3, R.drawable.esstelingknuffel),
-            new Price("Essteling Ticket Korting Bon", "Een eenmalige korting bon op je volgende Efteling ticket.", 2, R.drawable.esstelingkorting),
-            new Price("Essteling Restaurant Korting Bon", "Een eenmalige korting bon op je volgende bestelling bij een van onze restaurants.", 1, R.drawable.esstelingvoedselkortingklein),
-            new Price("Essteling fast lane pass", "Krijg eenmalig voorang in een wachtrij bij een attractie naar keuze.", R.drawable.esstelingfastlane)
-    };
-
-    public static Price[] getPrices(){
-        return prices;
-    }
-
-    public static Price getPrice(int id){
-        return prices[id];
-    }
 
 
 }

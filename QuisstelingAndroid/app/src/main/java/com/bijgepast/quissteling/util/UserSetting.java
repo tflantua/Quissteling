@@ -80,7 +80,7 @@ public class UserSetting {
     }
 
     public void setPrize1(boolean owned) {
-        this.sharedPref.edit().putBoolean(this.PRIZE1, owned);
+        this.sharedPref.edit().putBoolean(this.PRIZE1, owned).apply();
     }
 
     public boolean getPrize1() {
@@ -88,7 +88,7 @@ public class UserSetting {
     }
 
     public void setPrize2(boolean owned) {
-        this.sharedPref.edit().putBoolean(this.PRIZE2, owned);
+        this.sharedPref.edit().putBoolean(this.PRIZE2, owned).apply();
     }
 
     public boolean getPrize2() {
@@ -96,7 +96,7 @@ public class UserSetting {
     }
 
     public void setPrize3(boolean owned) {
-        this.sharedPref.edit().putBoolean(this.PRIZE3, owned);
+        this.sharedPref.edit().putBoolean(this.PRIZE3, owned).apply();
     }
 
     public boolean getPrize3() {
@@ -104,7 +104,7 @@ public class UserSetting {
     }
 
     public void setPrize4(boolean owned) {
-        this.sharedPref.edit().putBoolean(this.PRIZE4, owned);
+        this.sharedPref.edit().putBoolean(this.PRIZE4, owned).apply();
     }
 
     public boolean getPrize4() {
@@ -112,7 +112,7 @@ public class UserSetting {
     }
 
     public void setPrize5(boolean owned) {
-        this.sharedPref.edit().putBoolean(this.PRIZE5, owned);
+        this.sharedPref.edit().putBoolean(this.PRIZE5, owned).apply();
     }
 
     public boolean getPrize5() {
