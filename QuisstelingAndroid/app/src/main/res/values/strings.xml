@@ -33,4 +33,7 @@
     <string name="correctAnswerScoreText">Je nieuwe score is: </string>
     <string name="wrongAnswerText">Helaas, je hebt de vraag niet goed!</string>
     <string name="wrongAnswerScoreText">Je score blijft: </string>
+    <string name="prijs">Prijs</string>
+    <string name="beschrijving">Beschrijving</string>
+    <string name="plaats_nodig">Plaats nodig</string>
 </resources>
