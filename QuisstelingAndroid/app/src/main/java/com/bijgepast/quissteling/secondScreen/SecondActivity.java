@@ -41,6 +41,8 @@ public class SecondActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
 
+        userSetting.setPrizeAwarding();
+
         //init values
         this.backButton = findViewById(R.id.goBack);
         this.infoButton = findViewById(R.id.InfoButton);

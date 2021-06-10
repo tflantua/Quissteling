@@ -13,6 +13,7 @@ import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {
     private final SharedPreferences sharedPref;
+    private Context context;
 
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
@@ -22,8 +23,12 @@ public class UserSetting {
     //TODO get leaderboard from json and place in constructor above
 
     public UserSetting(Context context) {
+        this.context = context;
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        this.prizeAwarding = new PrizeAwarding(new LeaderBoard("1", "Jochem", 99999), context);
+    }
+
+    public void setPrizeAwarding() {
+        this.prizeAwarding = new PrizeAwarding(new LeaderBoard("1", "Jochem", 99999), this.context);
     }
 
     public void remove() {
@@ -61,11 +66,11 @@ public class UserSetting {
         this.sharedPref.edit().putInt(SCORE_KEY, score).apply();
     }
 
-    public void setDoneToday(boolean done){
+    public void setDoneToday(boolean done) {
         this.sharedPref.edit().putBoolean(this.DONE_TODAY, done);
     }
 
-    public boolean getDoneToday(){
+    public boolean getDoneToday() {
         return this.sharedPref.getBoolean(this.DONE_TODAY, true);
     }
 

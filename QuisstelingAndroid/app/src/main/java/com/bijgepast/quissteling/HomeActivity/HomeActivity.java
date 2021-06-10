@@ -9,7 +9,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
@@ -30,6 +29,8 @@ public class HomeActivity extends AppCompatActivity {
         this.userSetting = new UserSetting(this);
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
+
+        userSetting.setPrizeAwarding();
 
         //init values
         this.leaderBoardButton = findViewById(R.id.leaderBoardButton);

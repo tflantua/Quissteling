@@ -42,11 +42,4 @@ public class PrizeAwarding {
             //TODO award prize.
         }
     }
-
-    public void chanceAtFLPass(){
-        double chance = 0.03;
-        if (Math.random() < chance){
-            //TODO award FastLane Pass
-        }
-    }
 }

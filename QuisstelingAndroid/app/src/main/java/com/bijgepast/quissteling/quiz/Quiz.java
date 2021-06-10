@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.bijgepast.quissteling.HomeActivity.HomeActivity;
-import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.util.UserSetting;
 
 import java.util.ArrayList;
@@ -93,6 +93,7 @@ public class Quiz {
                 userSetting.addScore(100);
                 TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
                 bottomText.setText(context.getString(R.string.correctAnswerScoreText) + userSetting.getScore());
+                chanceAtFLPass();
             } else {
                 TextView topText = v.findViewById(R.id.answerpopuptext);
                 topText.setText(context.getString(R.string.wrongAnswerText));
@@ -111,5 +112,12 @@ public class Quiz {
             ((QuizActivity) context).startActivity(intent);
         }).show(v);
 
+    }
+
+    public void chanceAtFLPass() {
+        double chance = 0.03;
+        if (Math.random() < chance) {
+            //TODO award FastLane Pass
+        }
     }
 }
