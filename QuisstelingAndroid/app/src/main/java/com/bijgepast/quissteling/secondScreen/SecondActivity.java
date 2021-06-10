@@ -1,8 +1,10 @@
 package com.bijgepast.quissteling.secondScreen;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
@@ -10,8 +12,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private UserSetting userSetting;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,8 @@ public class SecondActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
 
+        userSetting.setPrizeAwarding();
+
         //init values
         this.backButton = findViewById(R.id.goBack);
         this.infoButton = findViewById(R.id.InfoButton);
@@ -48,13 +54,13 @@ public class SecondActivity extends AppCompatActivity {
         });
 
         this.infoButton.setOnClickListener(view -> {
-            //TODO Popupscreen voor info
+            new PopUpClass(view, R.layout.popup_info, this).show();
         });
 
         this.codeButton.setOnClickListener(view -> {
-            //TODO Popupscreen voor code in te vullen
+            new PopUpClass(view, R.layout.popup_insertcode, this).show();
         });
 
+        userSetting.getPrizeAwarding().checkTime();
     }
-
 }
