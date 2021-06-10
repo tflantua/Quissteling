@@ -16,12 +16,14 @@ public class UserSetting {
 
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
+    private final String DONE_TODAY = "done_today";
 
-    private final PrizeAwarding prizeAwarding = new PrizeAwarding(new LeaderBoard("1", "Jochem", 99999));
-    //TODO put leaderboard from json into the statement above
+    private PrizeAwarding prizeAwarding;
+    //TODO get leaderboard from json and place in constructor above
 
     public UserSetting(Context context) {
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        this.prizeAwarding = new PrizeAwarding(new LeaderBoard("1", "Jochem", 99999), context);
     }
 
     public void remove() {
@@ -33,6 +35,10 @@ public class UserSetting {
 
     public boolean exists() {
         return sharedPref.contains(USERNAME_KEY) && sharedPref.contains(SCORE_KEY);
+    }
+
+    public void addScore(int add) {
+        this.setScore(this.getScore() + add);
     }
 
     public String getUsername() {
@@ -55,7 +61,15 @@ public class UserSetting {
         this.sharedPref.edit().putInt(SCORE_KEY, score).apply();
     }
 
+    public void setDoneToday(boolean done){
+        this.sharedPref.edit().putBoolean(this.DONE_TODAY, done);
+    }
+
+    public boolean getDoneToday(){
+        return this.sharedPref.getBoolean(this.DONE_TODAY, true);
+    }
+
     public PrizeAwarding getPrizeAwarding() {
-        return this.prizeAwarding;
+        return prizeAwarding;
     }
 }
