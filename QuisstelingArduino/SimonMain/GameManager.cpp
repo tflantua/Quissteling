@@ -1,5 +1,7 @@
 #include <Arduino.h>
+#include "Buzzer.cpp"
 #include "GameManager.hpp"
+#include "pitches.h"
 #include <sstream>
 
  GameManager::GameManager() {
@@ -17,6 +19,9 @@
  void GameManager::CheckPlayerInput(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd) {
     // first check if the input is already equal to the sequence
     if (sequence.isInputEqualToSequence(playerInput)) {
+      // buzz to say the user did something right
+      Buzzer::buzzPositive();
+      
       // clear the player input, make the leds all blink and set a delay in before the program can resume
       Serial.println("Player input matched the sequence");
       ClearPlayerInput();
@@ -47,7 +52,9 @@
     } else {
       // if the sequence isn't equal then read new inputs
       if (playerProgress >= sequence.getProgress()) {
-        //TODO this is wrong input detection, give user feedback here
+        // buzz to say the user entered a wrong sequence
+        Buzzer::buzzError();
+        
         Serial.print("Resetting player progress at progress: ");
         Serial.print(playerProgress);
         Serial.print(" and sequence progress: ");

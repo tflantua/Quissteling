@@ -11,7 +11,7 @@ int buttonPin2 = 19;
 int buttonPin3 = 35;
 int buttonPin4 = 34;
 
-int buzzerPin = 23;
+int buzzerPin = 32;
 
 // Location id in the theme park and max possible questions at the location, used for generating quiz codes.
 // In actual implementation linked through networking
@@ -27,6 +27,11 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Starting");
 
+  // buzzer
+  ledcSetup(0, 2E4, 8);
+  ledcAttachPin(buzzerPin, 0);
+
+  // lcd
   lcd.init();
   lcd.backlight();
   // show on the lcd that the game is running
