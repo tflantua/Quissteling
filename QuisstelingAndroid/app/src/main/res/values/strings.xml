@@ -36,4 +36,7 @@
     <string name="prijs">Prijs</string>
     <string name="beschrijving">Beschrijving</string>
     <string name="plaats_nodig">Plaats nodig</string>
+    <string name="ok">oké</string>
+    <string name="fastlaneticket">fastlaneticket</string>
+    <string name="winPrize">U heeft een prijs gewonnen</string>
 </resources>
