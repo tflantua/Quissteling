@@ -2,6 +2,7 @@
 #include "Buzzer.cpp"
 #include "GameManager.hpp"
 #include "pitches.h"
+#include "Led.cpp"
 #include <sstream>
 
  GameManager::GameManager() {
@@ -66,28 +67,32 @@
         PressedButton(1, ledPin1);
         
       } else {
-        digitalWrite(ledPin1, LOW);
+//        digitalWrite(ledPin1, LOW);
+          Led::setValue(ledPin1, false, 1, 0);
       }
 
       if(digitalRead(buttonPin2) == HIGH){
         PressedButton(2, ledPin2);
         
       } else {
-        digitalWrite(ledPin2, LOW);
+//        digitalWrite(ledPin2, LOW);
+        Led::setValue(ledPin2, false, 2, 0);
       }
 
       if(digitalRead(buttonPin3) == HIGH){
         PressedButton(3, ledPin3);
         
       } else {
-        digitalWrite(ledPin3, LOW);
+//        digitalWrite(ledPin3, LOW);
+        Led::setValue(ledPin3, false, 3, 0);
       }
 
       if(digitalRead(buttonPin4) == HIGH){
         PressedButton(4, ledPin4);
         
       } else {
-        digitalWrite(ledPin4, LOW);
+//        digitalWrite(ledPin4, LOW);
+        Led::setValue(ledPin4, false, 4, 0);
       }      
     }
  }
@@ -95,10 +100,11 @@
 void GameManager::PressedButton(int button, int ledPin) {
         Serial.print("Pressed button ");
         Serial.println(button);
-        digitalWrite(ledPin, HIGH);
+//        digitalWrite(ledPin, HIGH);
         playerInput[playerProgress] = button - 1;
         playerProgress++;
-        delay(1000);
+//        delay(1000);
+  Led::setValue(ledPin, true, button, 1000);
 }
 
  String GameManager::GenerateQuizCode(int deviceLocationId, int maxPossibleQuestions) {

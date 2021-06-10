@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include<LiquidCrystal_I2C.h>
+#include "Led.cpp"
 #ifndef SEQUENCE_CPP
 #define SEQUENCE_CPP
   class Sequence {
@@ -31,26 +32,32 @@
             Serial.print(i);
             Serial.print(" Of ");
             Serial.print(progress);
+
+            int delayTime = 1000;
             
             if (numberOrderArray[i] == 0) {
-              digitalWrite(ledPin1, HIGH);
+//              digitalWrite(ledPin1, HIGH);
+              Led::setValue(ledPin1, true, 1, delayTime);
               Serial.println(", showed led 1");           
             }
             if (numberOrderArray[i] == 1) {
-              digitalWrite(ledPin2, HIGH);
+//              digitalWrite(ledPin2, HIGH);
+Led::setValue(ledPin2, true, 2, delayTime);
               Serial.println(", showed led 2");                 
             }
             if (numberOrderArray[i] == 2) {
-              digitalWrite(ledPin3, HIGH);  
+//              digitalWrite(ledPin3, HIGH);  
+Led::setValue(ledPin3, true, 3, delayTime);
               Serial.println(", showed led 3");                
             }
             if (numberOrderArray[i] == 3) {
-              digitalWrite(ledPin4, HIGH);     
+//              digitalWrite(ledPin4, HIGH);  
+Led::setValue(ledPin4, true, 4, delayTime);   
               Serial.println(", showed led 4");             
             }
 
             // give a small delay before turning the leds off and starting the new led
-            delay(1000);
+//            delay(1000);
             ResetBlinkAll(ledPin1, ledPin2, ledPin3, ledPin4);
           }
           progress++;
@@ -64,17 +71,25 @@
       }
 
       void BlinkAll(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
-        digitalWrite(ledPin1, HIGH);
-        digitalWrite(ledPin2, HIGH);
-        digitalWrite(ledPin3, HIGH);
-        digitalWrite(ledPin4, HIGH);
+//        digitalWrite(ledPin1, HIGH);
+//        digitalWrite(ledPin2, HIGH);
+//        digitalWrite(ledPin3, HIGH);
+//        digitalWrite(ledPin4, HIGH);
+          Led::setValue(ledPin1, true, 1, 0);
+          Led::setValue(ledPin2, true, 2, 0);
+          Led::setValue(ledPin3, true, 3, 0);
+          Led::setValue(ledPin4, true, 4, 0);
       }
 
       void ResetBlinkAll(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
-        digitalWrite(ledPin1, LOW);
-        digitalWrite(ledPin2, LOW);
-        digitalWrite(ledPin3, LOW);
-        digitalWrite(ledPin4, LOW);
+//        digitalWrite(ledPin1, LOW);
+//        digitalWrite(ledPin2, LOW);
+//        digitalWrite(ledPin3, LOW);
+//        digitalWrite(ledPin4, LOW);
+        Led::setValue(ledPin1, false, 1, 0);
+          Led::setValue(ledPin2, false, 2, 0);
+          Led::setValue(ledPin3, false, 3, 0);
+          Led::setValue(ledPin4, false, 4, 0);
       }
 
       int getProgress() {

@@ -1,6 +1,7 @@
 #include<Arduino.h>
 #include "pitches.h"
-
+#ifndef BUZZER_CPP
+#define BUZZER_CPP
 class Buzzer {
   public:
   static void buzz(int freq, int duration) {
@@ -10,7 +11,7 @@ class Buzzer {
   }
 
   static void buzzError() {
-    buzz(NOTE_G2, 500);
+    buzz(NOTE_G1, 500);
   }
 
   static void buzzPositive() {
@@ -18,4 +19,17 @@ class Buzzer {
     delay(100);
     buzz(NOTE_A5, 100);
   }
+
+  static void ledSound(int ledNum, int delayTime) {
+    if (ledNum == 1) {
+      buzz(NOTE_A5, delayTime); 
+    } else if (ledNum == 2) {
+      buzz(NOTE_B5, delayTime); 
+    } else if (ledNum == 3) {
+      buzz(NOTE_C5, delayTime); 
+    } else if (ledNum == 4) {
+      buzz(NOTE_D5, delayTime); 
+    }
+  }
 };
+#endif
