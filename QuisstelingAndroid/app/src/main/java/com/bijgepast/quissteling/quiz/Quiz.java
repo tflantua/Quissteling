@@ -93,7 +93,7 @@ public class Quiz {
                 userSetting.addScore(100);
                 TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
                 bottomText.setText(context.getString(R.string.correctAnswerScoreText) + userSetting.getScore());
-                chanceAtFLPass();
+                chanceAtFLPass(view, context);
             } else {
                 TextView topText = v.findViewById(R.id.answerpopuptext);
                 topText.setText(context.getString(R.string.wrongAnswerText));
@@ -114,10 +114,13 @@ public class Quiz {
 
     }
 
-    public void chanceAtFLPass() {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void chanceAtFLPass(View view, Context context) {
         double chance = 0.03;
         if (Math.random() < chance) {
-            //TODO award FastLane Pass
+            UserSetting userSetting = new UserSetting(context);
+            userSetting.setPrize5(true);
+            new PopUpClass(view, R.layout.popup_fastlaneticket, context).show();
         }
     }
 }

@@ -18,6 +18,7 @@ public class UserSetting {
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
     private final String DONE_TODAY = "done_today";
+    private final String PRIZE5 = "prize5";
 
     private PrizeAwarding prizeAwarding;
     //TODO get leaderboard from json and place in constructor above
@@ -76,5 +77,13 @@ public class UserSetting {
 
     public PrizeAwarding getPrizeAwarding() {
         return prizeAwarding;
+    }
+
+    public void setPrize5(boolean owned) {
+        this.sharedPref.edit().putBoolean(this.PRIZE5, owned);
+    }
+
+    public boolean getPrize5(){
+        return this.sharedPref.getBoolean(this.PRIZE5, false);
     }
 }
