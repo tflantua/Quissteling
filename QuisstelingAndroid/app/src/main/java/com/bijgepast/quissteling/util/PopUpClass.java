@@ -1,4 +1,4 @@
-package com.bijgepast.quissteling;
+package com.bijgepast.quissteling.util;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.quiz.QuizActivity;
 
 public class PopUpClass {

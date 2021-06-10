@@ -6,9 +6,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.bijgepast.quissteling.InitQuestion;
+import com.bijgepast.quissteling.util.InitQuestion;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.UserSetting;
+import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityQuizBinding;
 
 public class QuizActivity extends AppCompatActivity {

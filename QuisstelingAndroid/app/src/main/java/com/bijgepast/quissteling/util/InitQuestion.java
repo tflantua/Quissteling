@@ -1,4 +1,4 @@
-package com.bijgepast.quissteling;
+package com.bijgepast.quissteling.util;
 
 import com.bijgepast.quissteling.quiz.Location;
 import com.bijgepast.quissteling.quiz.Question;

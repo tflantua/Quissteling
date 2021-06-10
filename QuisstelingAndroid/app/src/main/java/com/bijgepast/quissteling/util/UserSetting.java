@@ -1,7 +1,9 @@
-package com.bijgepast.quissteling;
+package com.bijgepast.quissteling.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.bijgepast.quissteling.R;
 
 public class UserSetting {
     private final SharedPreferences sharedPref;
