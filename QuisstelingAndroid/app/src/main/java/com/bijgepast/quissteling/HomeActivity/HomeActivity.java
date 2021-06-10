@@ -52,7 +52,6 @@ public class HomeActivity extends AppCompatActivity {
             }).show();
         });
 
-        PrizeAwarding prizeAwarding = new PrizeAwarding(); //TODO get leaderboard and place in constructor
-        prizeAwarding.checkTime();
+        userSetting.getPrizeAwarding().checkTime();
     }
 }

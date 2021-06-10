@@ -59,7 +59,6 @@ public class SecondActivity extends AppCompatActivity {
             //TODO Popupscreen voor code in te vullen
         });
 
-        PrizeAwarding prizeAwarding = new PrizeAwarding(); //TODO get leaderboard and place in constructor
-        prizeAwarding.checkTime();
+        userSetting.getPrizeAwarding().checkTime();
     }
 }

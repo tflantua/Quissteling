@@ -2,12 +2,18 @@ package com.bijgepast.quissteling;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {
     private final SharedPreferences sharedPref;
 
     private final String USERNAME_KEY = "username";
     private final String SCORE_KEY = "scorekey";
+
+    private final PrizeAwarding prizeAwarding = new PrizeAwarding(); //TODO get leaderboard and place in constructor
 
     public UserSetting(Context context) {
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -42,5 +48,9 @@ public class UserSetting {
 
     public void setScore(int score) {
         this.sharedPref.edit().putInt(SCORE_KEY, score).apply();
+    }
+
+    public PrizeAwarding getPrizeAwarding() {
+        return prizeAwarding;
     }
 }
