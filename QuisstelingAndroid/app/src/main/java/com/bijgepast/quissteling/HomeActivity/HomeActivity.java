@@ -7,13 +7,13 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
+import com.bijgepast.quissteling.secondScreen.SecondActivity;
 import com.bijgepast.quissteling.util.IO;
 import com.bijgepast.quissteling.util.PopUpClass;
-import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.util.UserSetting;
-import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
-import com.bijgepast.quissteling.secondScreen.SecondActivity;
 
 import java.util.ArrayList;
 
@@ -32,9 +32,16 @@ public class HomeActivity extends AppCompatActivity {
         this.userSetting = new UserSetting(this);
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
+        leaderBoards = new ArrayList<>();
         Intent lastIntent = getIntent();
 
-        IO.writeLeaderBoard(leaderBoards);
+//        leaderBoards.add(new LeaderBoard(1, "Thomas", 1000));
+//        leaderBoards.add(new LeaderBoard(2, "Wesley", 700));
+//        leaderBoards.add(new LeaderBoard(3, "Jochem", 500));
+//        leaderBoards.add(new LeaderBoard(4, "Martijn", 300));
+//        leaderBoards.add(new LeaderBoard(5, "Luca", 100));
+//
+//        IO.writeLeaderBoard(leaderBoards);
 
         //init values
         this.leaderBoardButton = findViewById(R.id.leaderBoardButton);

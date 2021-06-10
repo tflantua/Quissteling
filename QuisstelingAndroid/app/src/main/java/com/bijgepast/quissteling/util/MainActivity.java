@@ -1,9 +1,11 @@
 package com.bijgepast.quissteling.util;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bijgepast.quissteling.HomeActivity.HomeActivity;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private UserSetting userSetting;
     private static ArrayList<LeaderBoard> leaderBoards;
 
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         leaderBoards = new ArrayList<>();
 
-        if(new File("data/data/com.bijgepast.quissteling/dummydata.json").exists()){
+        leaderBoards.add(new LeaderBoard(1, "Thomas", 1000));
+        leaderBoards.add(new LeaderBoard(2, "luca", 900));
+        leaderBoards.add(new LeaderBoard(3, "jochem", 800));
+        IO.writeLeaderBoard(leaderBoards);
+
+        if (new File("data/data/com.bijgepast.quissteling/dummydata.json").exists()) {
             leaderBoards = IO.readLeaderBoard();
         }
 
