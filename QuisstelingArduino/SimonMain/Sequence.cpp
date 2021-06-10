@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include<LiquidCrystal_I2C.h>
 #ifndef SEQUENCE_CPP
 #define SEQUENCE_CPP
   class Sequence {
@@ -86,9 +87,13 @@
         return sizeof(numberOrderArray)/sizeof(*numberOrderArray);
       }
 
-      void Reset() {
+      void Reset(LiquidCrystal_I2C lcd) {
         GenerateSequence();
         progress = 0;
+
+        // show on the lcd that the game is running
+  lcd.clear();
+  lcd.print("Simon says game");
       }
   };
 #endif

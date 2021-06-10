@@ -33,7 +33,7 @@
         ShowQuizCode(deviceLocationId, maxPossibleQuestions, lcd);
         
         // reset the sequence and player input
-        sequence.Reset();
+        sequence.Reset(lcd);
         ClearPlayerInput();
 
         // start the new sequence
@@ -112,7 +112,8 @@ void GameManager::PressedButton(int button, int ledPin) {
     Serial.print("Generated code: ");
     Serial.println(quizCode);
     // show the code
-    lcd.setCursor(0,0);
+    lcd.clear();
+    lcd.print("Quiz code:");
     lcd.print(quizCode);
     Serial.println("Showing quiz code and locking the minigame");
     delay(10000);
