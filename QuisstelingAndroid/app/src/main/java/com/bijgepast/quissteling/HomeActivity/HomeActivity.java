@@ -9,12 +9,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.bijgepast.quissteling.PopUpClass;
-import com.bijgepast.quissteling.PrizeAwarding;
+import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
-import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
 
 public class HomeActivity extends AppCompatActivity {

@@ -12,7 +12,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.util.UserSetting;
