@@ -25,6 +25,9 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceViewHol
    private OnItemClickListener clickListener;
    private List<Price> priceList;
 
+    private static final int VIEW_HOLDER_PRICE = 0;
+    private static final int VIEW_HOLDER_LOCKED = 1;
+
    public class PriceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final ViewDataBinding binding;
 
@@ -56,19 +59,35 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceViewHol
         this.clickListener = clickListener;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if (priceList.get(position).getLock() == 0) {
+            return VIEW_HOLDER_PRICE;
+        } else {
+            return VIEW_HOLDER_LOCKED;
+        }
+    }
+
     @NonNull
     @Override
     public PriceAdapter.PriceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Log.d(LOGTAG, "onCreateViewHolder() called");
-        LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.price_item, viewGroup, false);
-        return new PriceViewHolder(binding);
+        switch (i){
+            case VIEW_HOLDER_PRICE:
+                LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
+                ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.price_item, viewGroup, false);
+                return new PriceViewHolder(binding);
+            case VIEW_HOLDER_LOCKED:
+                LayoutInflater layoutInflaterLocked = LayoutInflater.from(viewGroup.getContext());
+                ViewDataBinding bindingLocked = DataBindingUtil.inflate(layoutInflaterLocked, R.layout.price_itemlocked, viewGroup, false);
+                return new PriceViewHolder(bindingLocked);
+        }
+       return null;
     }
 
     @Override
     public void onBindViewHolder(@NonNull PriceAdapter.PriceViewHolder priceViewHolder, int i) {
         Log.d(LOGTAG, "onBindViewHolder() called for item " + i);
-        Log.d(LOGTAG, "Received: " + priceList.get(i).getPriceName());
 
         priceViewHolder.bind(priceList.get(i));
     }
