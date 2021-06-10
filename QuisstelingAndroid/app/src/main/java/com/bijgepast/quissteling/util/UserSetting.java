@@ -137,12 +137,4 @@ public class UserSetting {
     public PrizeAwarding getPrizeAwarding() {
         return prizeAwarding;
     }
-
-    public void setPrize5(boolean owned) {
-        this.sharedPref.edit().putBoolean(this.PRIZE5, owned);
-    }
-
-    public boolean getPrize5(){
-        return this.sharedPref.getBoolean(this.PRIZE5, false);
-    }
 }
