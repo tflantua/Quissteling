@@ -11,6 +11,7 @@
  
  void GameManager::RunGame(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd) {
    CheckPlayerInput(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4, deviceLocationId, maxPossibleQuestions, lcd);
+   ShowProgress(lcd);
  }
 
  void GameManager::CheckPlayerInput(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd) {
@@ -127,4 +128,17 @@ void GameManager::PressedButton(int button, int ledPin) {
     playerInput[i] = -1;
   }
   playerProgress = 0;
+ }
+
+ void GameManager::ShowProgress(LiquidCrystal_I2C lcd) {
+  // show progress
+  lcd.setCursor(0,1);
+  lcd.print(playerProgress);
+  lcd.print("/");
+  lcd.print(sequence.getProgress());
+  // show how many sequences are necessary
+  lcd.print(" (");
+  lcd.print(sequence.getSize());
+  lcd.print(" to win)");
+  lcd.setCursor(0,0);
  }

@@ -48,6 +48,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   gameManager.RunGame(ledPin1, ledPin2, ledPin3, ledPin4, buttonPin1, buttonPin2, buttonPin3, buttonPin4, deviceLocationId, maxPossibleQuestions, lcd);
-  
   delay(100);
 }

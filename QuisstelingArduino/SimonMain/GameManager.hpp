@@ -28,6 +28,7 @@ int buttonPin4;
   public:
     void Start(int ledPin1, int ledPin2, int ledPin3, int ledPin4);    
     void RunGame(int ledPin1, int ledPin2, int ledPin3, int ledPin4, int buttonPin1, int buttonPin2, int buttonPin3, int buttonPin4, int deviceLocationId, int maxPossibleQuestions, LiquidCrystal_I2C lcd);
+    void ShowProgress(LiquidCrystal_I2C lcd);
     GameManager();
 };
 #endif
