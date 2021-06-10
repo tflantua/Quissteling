@@ -27,6 +27,9 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Starting");
 
+  // set the random seed for better randomness
+  randomSeed(analogRead(13));
+
   // buzzer
   ledcSetup(0, 2E4, 8);
   ledcAttachPin(buzzerPin, 0);

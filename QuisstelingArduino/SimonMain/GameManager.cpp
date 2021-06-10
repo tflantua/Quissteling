@@ -103,7 +103,7 @@ void GameManager::PressedButton(int button, int ledPin) {
 
  String GameManager::GenerateQuizCode(int deviceLocationId, int maxPossibleQuestions) {
   // get a random code between 0 and (maxPossibleQuestions - 1)
-  int code = rand() % maxPossibleQuestions;
+  int code = random(maxPossibleQuestions);
 
   String s = "";
   if (deviceLocationId < 10) s = s + "0";
@@ -145,7 +145,7 @@ void GameManager::PressedButton(int button, int ledPin) {
   lcd.print("/");
   lcd.print(sequence.getProgress());
   // show how many sequences are necessary
-  lcd.print(" (van de: ");
+  lcd.print(" (van de ");
   lcd.print(sequence.getSize());
   lcd.print(")");
   lcd.setCursor(0,0);

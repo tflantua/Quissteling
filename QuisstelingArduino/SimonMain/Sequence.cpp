@@ -11,7 +11,7 @@
       void GenerateSequence() {
         Serial.print("Sequence: ");
         for (int i = 0; i < 5; i++) {
-          numberOrderArray[i] = rand() % 4;
+          numberOrderArray[i] = random(4);
           Serial.print(numberOrderArray[i]);
           Serial.print(" ");
         }
@@ -54,6 +54,8 @@
 
             // give a small delay before turning the leds off and starting the new led
             ResetBlinkAll(ledPin1, ledPin2, ledPin3, ledPin4);
+            // small delay in the case of two leds being subsequent in the sequence, without it would overlap and not be distinct
+            delay(100);
           }
           progress++;
       }
