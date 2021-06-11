@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         this.userSetting = new UserSetting(this);
-        //this.userSetting.remove();
+        this.userSetting.remove();
         InitQuestion.add();
 
         if (userSetting.exists()) {

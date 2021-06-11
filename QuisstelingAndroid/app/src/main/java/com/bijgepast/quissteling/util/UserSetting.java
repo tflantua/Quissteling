@@ -44,6 +44,8 @@ public class UserSetting {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.remove(USERNAME_KEY);
         editor.remove(SCORE_KEY);
+        editor.remove(HOURS);
+        editor.remove(MINS);
         editor.apply();
     }
 
@@ -76,7 +78,7 @@ public class UserSetting {
     }
 
     public void setDoneToday(boolean done) {
-        this.sharedPref.edit().putBoolean(this.DONE_TODAY, done);
+        this.sharedPref.edit().putBoolean(this.DONE_TODAY, done).apply();
     }
 
     public boolean getDoneToday() {
@@ -123,15 +125,19 @@ public class UserSetting {
         return this.sharedPref.getBoolean(this.PRIZE5, false);
     }
 
-    public void setLastDate(LocalTime time){
+    public void setLastDate(LocalTime time) {
         this.sharedPref.edit().putInt(this.HOURS, time.getHour()).apply();
         this.sharedPref.edit().putInt(this.MINS, time.getMinute()).apply();
     }
 
-    public LocalTime getLastDate(){
-        int hours = this.sharedPref.getInt(this.HOURS, 0);
-        int minutes = this.sharedPref.getInt(this.MINS, 0);
-        return LocalTime.of(hours + 1, minutes);
+    public LocalTime getLastDate() {
+        if (sharedPref.contains(this.HOURS) && sharedPref.contains(MINS)) {
+            int hours = this.sharedPref.getInt(this.HOURS, 0);
+            int minutes = this.sharedPref.getInt(this.MINS, 0);
+            return LocalTime.of(hours + 1, minutes);
+        } else {
+            return null;
+        }
     }
 
     public PrizeAwarding getPrizeAwarding() {

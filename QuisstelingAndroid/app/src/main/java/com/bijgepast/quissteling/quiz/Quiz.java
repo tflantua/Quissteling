@@ -109,7 +109,7 @@ public class Quiz {
 
         new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
             Intent intent = new Intent(context, HomeActivity.class);
-            ((QuizActivity) context).startActivity(intent);
+            context.startActivity(intent);
         }).show(v);
 
     }
