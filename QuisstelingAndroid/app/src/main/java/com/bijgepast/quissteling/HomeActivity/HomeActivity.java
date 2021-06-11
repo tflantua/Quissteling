@@ -35,14 +35,6 @@ public class HomeActivity extends AppCompatActivity {
         leaderBoards = new ArrayList<>();
         Intent lastIntent = getIntent();
 
-//        leaderBoards.add(new LeaderBoard(1, "Thomas", 1000));
-//        leaderBoards.add(new LeaderBoard(2, "Wesley", 700));
-//        leaderBoards.add(new LeaderBoard(3, "Jochem", 500));
-//        leaderBoards.add(new LeaderBoard(4, "Martijn", 300));
-//        leaderBoards.add(new LeaderBoard(5, "Luca", 100));
-//
-//        IO.writeLeaderBoard(leaderBoards);
-
         //init values
         this.leaderBoardButton = findViewById(R.id.leaderBoardButton);
         this.infoButton = findViewById(R.id.InfoButton);

@@ -29,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         leaderBoards = new ArrayList<>();
 
-        leaderBoards.add(new LeaderBoard(1, "Thomas", 1000));
-        leaderBoards.add(new LeaderBoard(2, "luca", 900));
-        leaderBoards.add(new LeaderBoard(3, "jochem", 800));
-        IO.writeLeaderBoard(leaderBoards);
-
         if (new File("data/data/com.bijgepast.quissteling/dummydata.json").exists()) {
             leaderBoards = IO.readLeaderBoard();
+        } else {
+            leaderBoards.add(new LeaderBoard(1, "Thomas", 1000));
+            leaderBoards.add(new LeaderBoard(2, "Wesley", 700));
+            leaderBoards.add(new LeaderBoard(3, "Jochem", 500));
+            leaderBoards.add(new LeaderBoard(4, "Martijn", 300));
+            leaderBoards.add(new LeaderBoard(5, "Luca", 100));
+
+            IO.writeLeaderBoard(leaderBoards);
         }
 
         this.userSetting = new UserSetting(this);

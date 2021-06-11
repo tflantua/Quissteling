@@ -48,35 +48,6 @@ public class IO {
 
         ArrayList<LeaderBoard> leaderBoards = new ArrayList<>();
 
-//        try (JsonReader jsonReader = new JsonReader(new FileReader(file))) {
-//            jsonReader.beginArray();
-//            while (jsonReader.hasNext()) {
-//                jsonReader.beginObject();
-//                String fullString = jsonReader;
-//                String[] stringArray = fullString.split(",");
-//                String usernameString = "";
-//                int place = 0;
-//                int score = 0;
-//                for (int i = 0; i < stringArray.length; i++) {
-//                    if (stringArray[i].contains("username")) {
-//                        String[] username = stringArray[i].split(":");
-//                        usernameString = username[1].substring(1, username[1].length() - 1);
-//                    } else if (stringArray[i].contains("place")) {
-//                        String[] placeSplit = stringArray[i].split(":");
-//                        place = Integer.parseInt(placeSplit[1].substring(1, placeSplit[1].length() - 1));
-//                    } else if (stringArray[i].contains("score")) {
-//                        String[] scoreSplit = stringArray[i].split(":");
-//                        score = Integer.parseInt(scoreSplit[1].substring(1, scoreSplit[1].length() - 1));
-//                    }
-//                }
-//                jsonReader.endObject();
-//                leaderBoards.add(new LeaderBoard(place, usernameString, score));
-//            }
-//            jsonReader.endArray();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             jsonData = bufferedReader.readLine();
             JSONObject jsonRootObject = new JSONObject(jsonData);
