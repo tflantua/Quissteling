@@ -34,13 +34,13 @@ public class PrizeAwarding {
     }
 
     private void awardPrize(){
-        if (leaderBoard.getPlace().equals("1")){
+        if (leaderBoard.getPlace() == 1){
             userSetting.setPrize1(true);
-        } else if (leaderBoard.getPlace().equals("2")){
+        } else if (leaderBoard.getPlace() == 2){
             userSetting.setPrize2(true);
-        } else if (leaderBoard.getPlace().equals("3")){
+        } else if (leaderBoard.getPlace() == 3){
             userSetting.setPrize3(true);
-        } else if (leaderBoard.getPlace().equals("4")){
+        } else if (leaderBoard.getPlace() == 4){
             userSetting.setPrize4(true);
         }
     }

@@ -33,7 +33,6 @@ public class HomeActivity extends AppCompatActivity {
         this.userSetting = new UserSetting(this);
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
-        leaderBoards = new ArrayList<>();
         Intent lastIntent = getIntent();
 
         userSetting.setPrizeAwarding();

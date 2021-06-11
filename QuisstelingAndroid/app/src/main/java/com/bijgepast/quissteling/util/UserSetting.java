@@ -37,7 +37,7 @@ public class UserSetting {
     }
 
     public void setPrizeAwarding() {
-        this.prizeAwarding = new PrizeAwarding(new LeaderBoard("1", "Jochem", 99999), this.context);
+        this.prizeAwarding = new PrizeAwarding(new LeaderBoard(1, "Jochem", 99999), this.context);
     }
 
     public void remove() {

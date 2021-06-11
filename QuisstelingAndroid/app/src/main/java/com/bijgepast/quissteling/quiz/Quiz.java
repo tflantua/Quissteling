@@ -116,7 +116,7 @@ public class Quiz {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void chanceAtFLPass(View view, Context context) {
-        double chance = 0.03;
+        double chance = 0.5;
         if (Math.random() < chance) {
             UserSetting userSetting = new UserSetting(context);
             userSetting.setPrize5(true);
