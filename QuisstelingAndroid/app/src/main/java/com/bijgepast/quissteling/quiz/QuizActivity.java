@@ -1,8 +1,10 @@
 package com.bijgepast.quissteling.quiz;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -20,6 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button backButton;
     private Button homeButtonAfterQuiz;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

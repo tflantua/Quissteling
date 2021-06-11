@@ -11,9 +11,13 @@ import androidx.databinding.DataBindingUtil;
 
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
+import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
+import com.bijgepast.quissteling.util.IO;
 import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.util.UserSetting;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -29,6 +33,8 @@ public class HomeActivity extends AppCompatActivity {
         this.userSetting = new UserSetting(this);
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
+        leaderBoards = new ArrayList<>();
+        Intent lastIntent = getIntent();
 
         userSetting.setPrizeAwarding();
 
