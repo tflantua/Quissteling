@@ -1,12 +1,16 @@
 package com.bijgepast.quissteling.secondScreen.ui.MyPrizes;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,7 +32,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class MyPrizesFragment extends Fragment {
+public class MyPrizesFragment extends Fragment implements PriceAdapter.OnItemClickListener {
+    private static final String LOGTAG = MyPrizesFragment.class.getName();
+
 
     private ArrayList<Price> priceList;
     private RecyclerView recyclerView;
@@ -36,7 +42,7 @@ public class MyPrizesFragment extends Fragment {
     private ConstraintLayout constraintLayout;
 
     private UserSetting userSetting;
-
+    private Context context;
     private MyPrizesViewModel myPrizesViewModel;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -47,19 +53,13 @@ public class MyPrizesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_myprizes, container, false);
 
         this.priceList = new ArrayList<>();
-
+        this.context = root.getContext();
         this.userSetting = new UserSetting(root.getContext());
 
         this.recyclerView = root.findViewById(R.id.priceViewLeader);
         this.constraintLayout = root.findViewById(R.id.listconstraint);
 
-        this.priceAdapter = new PriceAdapter(root.getContext(), this.priceList, new PriceAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int clickedPosition) {
-
-            }
-        });
-
+        this.priceAdapter = new PriceAdapter(root.getContext(), this.priceList, this);
         this.recyclerView.setAdapter(this.priceAdapter);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
@@ -72,5 +72,17 @@ public class MyPrizesFragment extends Fragment {
 
 
         return root;
+    }
+
+    @Override
+    public void onItemClick(int clickedPosition) {
+        Log.i(LOGTAG, "onItemClick() called for position " + clickedPosition);
+        navigateToPriceDetailActivity(clickedPosition);
+    }
+
+    private void navigateToPriceDetailActivity(int position){
+        Intent intent = new Intent(this.context, MyPrizesDetailView.class);
+        intent.putExtra(MyPrizesDetailView.EXTRA_PRICE_ID, priceList.get(position));
+        startActivity(intent);
     }
 }

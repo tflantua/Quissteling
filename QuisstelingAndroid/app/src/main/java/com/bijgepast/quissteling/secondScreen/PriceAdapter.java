@@ -1,6 +1,7 @@
 package com.bijgepast.quissteling.secondScreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bijgepast.quissteling.BR;
 import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.secondScreen.ui.MyPrizes.MyPrizesDetailView;
 
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceViewHol
        public PriceViewHolder(ViewDataBinding binding) {
            super(binding.getRoot());
            this.binding = binding;
+           itemView.setOnClickListener(this);
        }
 
        public void bind(Object obj) {
@@ -44,7 +47,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceViewHol
        @Override
        public void onClick(View view) {
            int clickedPosition = getAdapterPosition();
-           Log.i(LOGTAG, "Opleiding " + clickedPosition + " clicked");
+           Log.i(LOGTAG, "Price: " + clickedPosition + "clicked");
            clickListener.onItemClick(clickedPosition);
        }
    }

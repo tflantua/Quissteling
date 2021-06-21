@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bijgepast.quissteling">
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Quissteling">
-        <activity android:name=".quiz.QuizActivity"></activity>
+        <activity android:name=".secondScreen.ui.MyPrizes.MyPrizesDetailView"></activity>
+        <activity android:name=".quiz.QuizActivity" />
         <activity
             android:name=".secondScreen.SecondActivity"
             android:label="@string/title_activity_leader_board" />

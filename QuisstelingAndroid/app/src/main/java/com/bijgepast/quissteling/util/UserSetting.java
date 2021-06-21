@@ -143,4 +143,5 @@ public class UserSetting {
     public PrizeAwarding getPrizeAwarding() {
         return prizeAwarding;
     }
+
 }
