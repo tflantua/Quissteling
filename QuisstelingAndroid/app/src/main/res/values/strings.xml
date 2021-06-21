@@ -52,6 +52,7 @@
     <string name="prize_restaurantDiscount_description">Een eenmalige korting bon op je volgende bestelling bij een van onze restaurants.</string>
     <string name="prize_fastLane">Essteling fast lane pass</string>
     <string name="prize_fastlane_description">Krijg eenmalig voorang in een wachtrij bij een attractie naar keuze.</string>
+    <string name="incorrect_code">incorrecte code</string>
     <string name="empty_username">Gebruikersnaam is leeg</string>
 
     //questions
