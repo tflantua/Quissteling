@@ -36,6 +36,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceViewHol
        public PriceViewHolder(ViewDataBinding binding) {
            super(binding.getRoot());
            this.binding = binding;
+           itemView.setOnClickListener(this);
        }
 
        public void bind(Object obj) {

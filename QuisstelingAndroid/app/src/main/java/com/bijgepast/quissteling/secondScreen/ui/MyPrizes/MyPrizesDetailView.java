@@ -6,6 +6,7 @@ import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.secondScreen.Price;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,9 @@ public class MyPrizesDetailView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_prizes_detail_view);
 
-        price = (Price) getIntent().getSerializableExtra("Serial");
+        Log.d(LOGTAG,"Placing " + EXTRA_PRICE_ID + " in Detail");
+
+        price = (Price) getIntent().getSerializableExtra("priceId");
 
         ImageView pricePhoto = (ImageView) findViewById(R.id.prijsImage);
         pricePhoto.setImageResource(price.getImageResourceId());
@@ -32,6 +35,6 @@ public class MyPrizesDetailView extends AppCompatActivity {
         priceDescription.setText(price.getPriceDescription());
 
         TextView pricePlaceNeeded = (TextView) findViewById(R.id.prijsPlaats);
-        pricePlaceNeeded.setText(price.getPlaceNeeded());
+        pricePlaceNeeded.setText(price.getPlaceNeededString());
     }
 }

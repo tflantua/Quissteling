@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,8 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class MyPrizesFragment extends Fragment implements PriceAdapter.OnItemClickListener {
+    private static final String LOGTAG = MyPrizesFragment.class.getName();
+
 
     private ArrayList<Price> priceList;
     private RecyclerView recyclerView;
@@ -73,12 +76,13 @@ public class MyPrizesFragment extends Fragment implements PriceAdapter.OnItemCli
 
     @Override
     public void onItemClick(int clickedPosition) {
+        Log.i(LOGTAG, "onItemClick() called for position " + clickedPosition);
         navigateToPriceDetailActivity(clickedPosition);
     }
 
     private void navigateToPriceDetailActivity(int position){
         Intent intent = new Intent(this.context, MyPrizesDetailView.class);
-        intent.putExtra(MyPrizesDetailView.EXTRA_PRICE_ID, position);
+        intent.putExtra(MyPrizesDetailView.EXTRA_PRICE_ID, priceList.get(position));
         startActivity(intent);
     }
 }
