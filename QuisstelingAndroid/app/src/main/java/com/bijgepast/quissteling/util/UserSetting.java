@@ -10,7 +10,7 @@ import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {
@@ -27,6 +27,9 @@ public class UserSetting {
     private final String PRIZE5 = "prize5";
     private final String HOURS = "hours";
     private final String MINS = "minutes";
+    private final String DAY = "day";
+    private final String MONTH = "month";
+    private final String YEAR = "year";
 
     private PrizeAwarding prizeAwarding;
     //TODO get leaderboard from json and place in constructor above
@@ -125,16 +128,22 @@ public class UserSetting {
         return this.sharedPref.getBoolean(this.PRIZE5, false);
     }
 
-    public void setLastDate(LocalTime time) {
+    public void setLastDate(LocalDateTime time) {
         this.sharedPref.edit().putInt(this.HOURS, time.getHour()).apply();
         this.sharedPref.edit().putInt(this.MINS, time.getMinute()).apply();
+        this.sharedPref.edit().putInt(this.YEAR, time.getYear()).apply();
+        this.sharedPref.edit().putInt(this.MONTH, time.getMonthValue()).apply();
+        this.sharedPref.edit().putInt(this.DAY, time.getDayOfMonth()).apply();
     }
 
-    public LocalTime getLastDate() {
+    public LocalDateTime getLastDate() {
         if (sharedPref.contains(this.HOURS) && sharedPref.contains(MINS)) {
             int hours = this.sharedPref.getInt(this.HOURS, 0);
             int minutes = this.sharedPref.getInt(this.MINS, 0);
-            return LocalTime.of(hours + 1, minutes);
+            int year = this.sharedPref.getInt(this.YEAR, 0);
+            int month = this.sharedPref.getInt(this.MONTH, 1);
+            int day = this.sharedPref.getInt(this.DAY, 1);
+            return LocalDateTime.of(year, month, day, hours + 1, minutes);
         } else {
             return null;
         }
