@@ -1,23 +1,27 @@
 package com.bijgepast.quissteling;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bijgepast.quissteling.quiz.QuizActivity;
+import com.bijgepast.quissteling.util.UserSetting;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private UserSetting userSetting;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.userSetting = new UserSetting(this);
-        //this.userSetting.remove();
+        this.userSetting.remove();
 
 //        if (userSetting.exists()) {
 //            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
