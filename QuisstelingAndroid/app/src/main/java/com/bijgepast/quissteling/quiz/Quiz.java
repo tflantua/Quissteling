@@ -23,6 +23,8 @@ public class Quiz {
     private String questionId;
     private ArrayList<Location> locations;
     private ArrayList<String> answers;
+    private View v;
+    private PopUpClass popUpClass;
 
     public Quiz(String id) {
         this.locations = new ArrayList<>();
@@ -83,44 +85,55 @@ public class Quiz {
     public void checkAnswer(String answer, View view, Context context) {
         HashMap<String, Boolean> answers = this.locations.get(Integer.parseInt(locationId) - 1).getQuestions().get(Integer.parseInt(questionId) - 1).getAnswers();
         LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.popup_quizanswerscore, null);
+        this.v = inflater.inflate(R.layout.popup_quizanswerscore, null);
         UserSetting userSetting = new UserSetting(context);
 
         if (answers.containsKey(answer)) {
             if (answers.get(answer)) {
-                TextView topText = v.findViewById(R.id.answerpopuptext);
+                TextView topText = this.v.findViewById(R.id.answerpopuptext);
                 topText.setText(context.getString(R.string.correctAnswerText));
                 userSetting.addScore(100);
-                TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
+                TextView bottomText = this.v.findViewById(R.id.answerpopupscoretext);
                 bottomText.setText(context.getString(R.string.correctAnswerScoreText) + userSetting.getScore());
                 chanceAtFLPass(view, context);
             } else {
-                TextView topText = v.findViewById(R.id.answerpopuptext);
+                TextView topText = this.v.findViewById(R.id.answerpopuptext);
                 topText.setText(context.getString(R.string.wrongAnswerText));
-                TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
+                TextView bottomText = this.v.findViewById(R.id.answerpopupscoretext);
                 bottomText.setText(context.getString(R.string.wrongAnswerScoreText) + userSetting.getScore());
+
+                new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
+                    Intent intent = new Intent(context, HomeActivity.class);
+                    ((QuizActivity) context).startActivity(intent);
+                }).show(v);
             }
         } else {
-            TextView topText = v.findViewById(R.id.answerpopuptext);
+            TextView topText = this.v.findViewById(R.id.answerpopuptext);
             topText.setText(context.getString(R.string.wrongAnswerText));
-            TextView bottomText = v.findViewById(R.id.answerpopupscoretext);
+            TextView bottomText = this.v.findViewById(R.id.answerpopupscoretext);
             bottomText.setText(context.getString(R.string.wrongAnswerScoreText) + userSetting.getScore());
+            new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
+                Intent intent = new Intent(context, HomeActivity.class);
+                ((QuizActivity) context).startActivity(intent);
+            }).show(v);
+
         }
-
-        new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
-            Intent intent = new Intent(context, HomeActivity.class);
-            ((QuizActivity) context).startActivity(intent);
-        }).show(v);
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void chanceAtFLPass(View view, Context context) {
-        double chance = 0.03;
+        double chance = 1;
         if (Math.random() < chance) {
             UserSetting userSetting = new UserSetting(context);
             userSetting.setPrize5(true);
-            new PopUpClass(view, R.layout.popup_fastlaneticket, context).show();
+            this.popUpClass = new PopUpClass(view, R.layout.popup_fastlaneticket, context, view1 -> {
+                new PopUpClass(view, R.layout.popup_quizanswerscore, context, v -> {
+                    Intent intent = new Intent(context, HomeActivity.class);
+                    ((QuizActivity) context).startActivity(intent);
+                    this.popUpClass.dismiss();
+                }).show(this.v);
+            });
+            this.popUpClass.show();
         }
     }
 }
