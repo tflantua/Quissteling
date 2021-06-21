@@ -42,4 +42,14 @@
     <string name="detailviewdescriptie">Descriptie:</string>
     <string name="detailviewplaats_nodig">Plaats nodig:</string>
     <string name="detailprijs">Prijs</string>
+    <string name="pricename_sleutelhanger">Essteling Roodkapje Sleutelhanger</string>
+    <string name="pricename_knuffel">Essteling Roodkapje Knuffel</string>
+    <string name="pricename_ticketbon">Essteling Ticket Korting Bon</string>
+    <string name="pricename_restaurantbon">Essteling Restaurant Korting Bon</string>
+    <string name="pricename_fastlane">Essteling fast lane pass</string>
+    <string name="pricedesc_sleutelhanger">Een sleutelhanger van Roodkapje uit het sprookje van Roodkapje.</string>
+    <string name="pricedesc_knuffel">Een knuffel van Roodkapje uit het sprookje van Roodkapje.</string>
+    <string name="pricedesc_ticketbon">Een eenmalige korting bon op je volgende Efteling ticket.</string>
+    <string name="pricedesc_restaurantbon">Een eenmalige korting bon op je volgende bestelling bij een van onze restaurants.</string>
+    <string name="pricedesc_fastlane">Krijg eenmalig voorang in een wachtrij bij een attractie naar keuze.</string>
 </resources>
