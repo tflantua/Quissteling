@@ -39,4 +39,51 @@
     <string name="ok">oké</string>
     <string name="fastlaneticket">fastlaneticket</string>
     <string name="winPrize">U heeft een prijs gewonnen</string>
+    <string name="prize_keychain">Essteling Roodkapje Sleutelhanger</string>
+    <string name="prize_keychain_description">Een sleutelhanger van Roodkapje uit het sprookje van Roodkapje.</string>
+    <string name="prize_stuffedAnimal">Essteling Roodkapje Knuffel</string>
+    <string name="pirze_stuffedAnimal_description">Een knuffel van Roodkapje uit het sprookje van Roodkapje.</string>
+    <string name="prize_ticketDiscount">Essteling Ticket Korting Bon</string>
+    <string name="prize_ticketDiscount_description">Een eenmalige korting bon op je volgende Efteling ticket.</string>
+    <string name="prize_restaurantDiscount">Essteling Restaurant Korting Bon</string>
+    <string name="prize_restaurantDiscount_description">Een eenmalige korting bon op je volgende bestelling bij een van onze restaurants.</string>
+    <string name="prize_fastLane">Essteling fast lane pass</string>
+    <string name="prize_fastlane_description">Krijg eenmalig voorang in een wachtrij bij een attractie naar keuze.</string>
+    <string name="empty_username">Gebruikersnaam is leeg</string>
+
+    //questions
+    <string name="red_riding_hood">Roodkapje</string>
+
+    <string name="red_riding_hood_question_hearcolor">Wat is de haarkleur van Roodkapje?</string>
+    <string name="red_riding_hood_question_hearcolor_blond">Blond</string>
+    <string name="red_riding_hood_question_hearcolor_black">Zwart</string>
+    <string name="red_riding_hood_question_hearcolor_brown">Bruin</string>
+    <string name="red_riding_hood_question_hearcolor_red">Rood</string>
+
+    <string name="red_riding_hood_question_kidnapping">Roodkapje is wel eens uit het park ontvoerd, in welk jaar was dit voor het eerst gebeurd?</string>
+
+    <string name="red_riding_hood_question_animal">Welk dier komt voor in het verhaal van Roodkapje?</string>
+    <string name="red_riding_hood_question_animal_lion">Leeuw</string>
+    <string name="red_riding_hood_question_animal_fox">Vos</string>
+    <string name="red_riding_hood_question_animal_kangaroo">Kangoeroe</string>
+    <string name="red_riding_hood_question_animal_wolf">Wolf</string>
+
+    <string name="red_riding_hood_question_familymember">Welk familielid van Roodkapje komt in het verhaal voor?</string>
+    <string name="red_riding_hood_question_familymember_grandpa">Haar opa</string>
+    <string name="red_riding_hood_question_familymember_grandma">Haar oma</string>
+    <string name="red_riding_hood_question_familymember_father">Haar vader</string>
+    <string name="red_riding_hood_question_familymember_sister">Haar zus</string>
+    
+    <string name="red_riding_hood_question_otherLanguage">Wat is roodkapje in het Engels?</string>
+    <string name="red_riding_hood_question_otherLanguage_first">Red cap</string>
+    <string name="red_riding_hood_question_otherLanguage_second">Girl in red</string>
+    <string name="red_riding_hood_question_otherLanguage_third">Red Riding Hood</string>
+    <string name="red_riding_hood_question_otherLanguage_fourth">Red Hood</string>
+
+    <string name="red_riding_hood_question_yearSinceInPark">Vanaf welk jaar is Roodkapje te vinden in de Essteling?</string>
+
+    <string name="toast_code_not_correct">De lengte van de cijferreeks is niet correct</string>
+    <string name="toast_location_already_used">U heeft deze locatie laats nog gebruikt</string>
+    <string name="toast_wrong_code">"Dit is niet de juiste code"</string>
+
 </resources>

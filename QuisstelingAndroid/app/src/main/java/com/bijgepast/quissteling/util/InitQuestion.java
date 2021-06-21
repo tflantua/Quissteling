@@ -1,5 +1,11 @@
 package com.bijgepast.quissteling.util;
 
+import android.content.Context;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+
+import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.quiz.Location;
 import com.bijgepast.quissteling.quiz.Question;
 import com.bijgepast.quissteling.quiz.Quiz;
@@ -7,46 +13,45 @@ import com.bijgepast.quissteling.quiz.Quiz;
 public class InitQuestion {
     public static Quiz quiz = new Quiz();
 
-    public static void add() {
+    public static void add(Context context) {
         try {
-            //TODO zet alles nog over naar @strings
-            Location location = new Location("01", "Roodkapje");
-            Question question = new Question("01", "Wat is de haarkleur van Roodkapje?");
-            question.addAnswer(true, "Blond");
-            question.addAnswer(false, "Rood");
-            question.addAnswer(false, "Zwart");
-            question.addAnswer(false, "Bruin");
+            Location location = new Location("01", context.getString(R.string.red_riding_hood));
+            Question question = new Question("01", context.getString(R.string.red_riding_hood_question_hearcolor));
+            question.addAnswer(true, context.getString(R.string.red_riding_hood_question_hearcolor_blond));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_hearcolor_red));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_hearcolor_black));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_hearcolor_brown));
             location.addQuestion(question);
 
-            question = new Question("02", "Roodkapje is wel eens uit het park ontvoerd, in welk jaar was dit voor het eerst gebeurd?");
+            question = new Question("02", context.getString(R.string.red_riding_hood_question_kidnapping));
             question.addAnswer(true, "1998");
             question.addAnswer(false, "1987");
             question.addAnswer(false, "1960");
             question.addAnswer(false, "2006");
             location.addQuestion(question);
 
-            question = new Question("03", "Welk dier komt voor in het verhaal van Roodkapje?");
-            question.addAnswer(false, "Een leeuw");
-            question.addAnswer(false, "Een vos");
-            question.addAnswer(false, "Een kangaroe");
-            question.addAnswer(true, "Een wolf");
+            question = new Question("03", context.getString(R.string.red_riding_hood_question_animal));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_animal_lion));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_animal_fox));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_animal_kangaroo));
+            question.addAnswer(true, context.getString(R.string.red_riding_hood_question_animal_wolf));
             location.addQuestion(question);
 
-            question = new Question("04", "Welk familielid van Roodkapje komt in het verhaal voor?");
-            question.addAnswer(false, "Haar opa");
-            question.addAnswer(true, "Haar oma");
-            question.addAnswer(false, "Haar moeder");
-            question.addAnswer(false, "Haar zus");
+            question = new Question("04", context.getString(R.string.red_riding_hood_question_familymember));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_familymember_grandpa));
+            question.addAnswer(true, context.getString(R.string.red_riding_hood_question_familymember_grandma));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_familymember_father));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_familymember_sister));
             location.addQuestion(question);
 
-            question = new Question("05", "Wat is Roodkapje in het engels?");
-            question.addAnswer(false, "Red Cap");
-            question.addAnswer(false, "Girl in red");
-            question.addAnswer(true, "Red Riding Hood");
-            question.addAnswer(false, "Red Hood");
+            question = new Question("05", context.getString(R.string.red_riding_hood_question_otherLanguage));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_otherLanguage_first));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_otherLanguage_second));
+            question.addAnswer(true, context.getString(R.string.red_riding_hood_question_otherLanguage_third));
+            question.addAnswer(false, context.getString(R.string.red_riding_hood_question_otherLanguage_fourth));
             location.addQuestion(question);
 
-            question = new Question("06", "Vanaf welk jaar is Roodkapje te vinden in de Essteling?");
+            question = new Question("06", context.getString(R.string.red_riding_hood_question_yearSinceInPark));
             question.addAnswer(true, "1953");
             question.addAnswer(false, "1956");
             question.addAnswer(false, "1970");
@@ -56,7 +61,7 @@ public class InitQuestion {
             quiz.addLocation(location);
         } catch (Exception e) {
             e.printStackTrace();
-            ;
+
         }
     }
 }
