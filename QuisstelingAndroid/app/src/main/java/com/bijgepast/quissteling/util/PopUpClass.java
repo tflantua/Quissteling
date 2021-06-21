@@ -24,6 +24,7 @@ public class PopUpClass {
     private final int resource;
     private final Context context;
     private View.OnClickListener okOnClickListener;
+    private PopupWindow popupWindow;
 
     public PopUpClass(View view, int resource, Context context) {
         this.view = view;
@@ -55,7 +56,7 @@ public class PopUpClass {
         boolean focusable = true;
 
         //create a window with our parameters
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        this.popupWindow = new PopupWindow(popupView, width, height, focusable);
 
         //set location of popup
         popupWindow.showAtLocation(this.view, Gravity.CENTER, 0, 0);
@@ -124,7 +125,7 @@ public class PopUpClass {
         boolean focusable = true;
 
         //create a window with our parameters
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+        this.popupWindow = new PopupWindow(popupView, width, height, focusable);
 
         //set location of popup
         popupWindow.showAtLocation(this.view, Gravity.CENTER, 0, 0);
@@ -172,5 +173,9 @@ public class PopUpClass {
         if (okButton != null) {
             okButton.setOnClickListener(okOnClickListener);
         }
+    }
+
+    public void dismiss(){
+        this.popupWindow.dismiss();
     }
 }
