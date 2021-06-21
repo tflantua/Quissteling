@@ -25,6 +25,7 @@ public class Quiz {
     private ArrayList<String> answers;
     private View v;
     private PopUpClass popUpClass;
+    public final String CORRECT_KEY = "answer";
 
     public Quiz(String id) {
         this.locations = new ArrayList<>();
@@ -114,6 +115,8 @@ public class Quiz {
             bottomText.setText(context.getString(R.string.wrongAnswerScoreText) + userSetting.getScore());
             new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
                 Intent intent = new Intent(context, HomeActivity.class);
+                boolean correct = answers.containsKey(answer);
+                intent.putExtra(this.CORRECT_KEY, correct);
                 ((QuizActivity) context).startActivity(intent);
             }).show(v);
 
