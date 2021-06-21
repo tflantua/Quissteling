@@ -34,6 +34,23 @@ public class HomeActivity extends AppCompatActivity {
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
         Intent lastIntent = getIntent();
+        boolean correct = lastIntent.getExtras().getBooleanExtra(Quiz.CORRECT_KEY, null);
+        if (correct != null){
+            if (correct){
+                ImageView image= (ImageView) findViewById(R.id.firstGamePoint);
+                image.setImageResource(R.drawable.point_icon_checked);
+            } else {
+                ImageView image= (ImageView) findViewById(R.id.firstGamePoint);
+                image.setImageResource(R.drawable.point_icon_crossed);
+            }
+        }
+
+        if (userSetting.getLastDate() != null) {
+            if (LocalDateTime.now().isAfter(userSetting.getLastDate())) {
+                ImageView image= (ImageView) findViewById(R.id.firstGamePoint);
+                image.setImageResource(R.drawable.point_icon_empty);
+            }
+        }
 
         userSetting.setPrizeAwarding();
 
