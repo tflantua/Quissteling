@@ -45,6 +45,7 @@
     <string name="detailviewdescriptie">Description:</string>
     <string name="detailviewplaats_nodig">Place needed:</string>
     <string name="detailprijs">Price</string>
+    <string name="incorrect_code">incorrect code</string>
     <string name="empty_username">Username is empty</string>
 
     //questions
