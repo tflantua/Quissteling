@@ -17,7 +17,7 @@ import androidx.annotation.RequiresApi;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.quiz.QuizActivity;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class PopUpClass {
     private final View view;
@@ -84,14 +84,14 @@ public class PopUpClass {
 
                         UserSetting userSetting = new UserSetting(context);
                         if (userSetting.getLastDate() != null) {
-                            if (LocalTime.now().isAfter(userSetting.getLastDate())) {
+                            if (LocalDateTime.now().isAfter(userSetting.getLastDate())) {
                                 context.startActivity(intent);
-                                userSetting.setLastDate(LocalTime.now());
+                                userSetting.setLastDate(LocalDateTime.now());
                             } else {
                                 Toast.makeText(context, "U heeft deze locatie laats nog gebruikt", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            userSetting.setLastDate(LocalTime.now());
+                            userSetting.setLastDate(LocalDateTime.now());
                             context.startActivity(intent);
                         }
                     } catch (Exception e) {
@@ -155,10 +155,10 @@ public class PopUpClass {
                 } else {
                     try {
                         UserSetting userSetting = new UserSetting(context);
-                        if (LocalTime.now().isAfter(userSetting.getLastDate())) {
+                        if (LocalDateTime.now().isAfter(userSetting.getLastDate())) {
                             Intent intent = new Intent(context, QuizActivity.class);
                             context.startActivity(intent);
-                            userSetting.setLastDate(LocalTime.now());
+                            userSetting.setLastDate(LocalDateTime.now());
                         } else {
                             Toast.makeText(context, "U heeft deze locatie laats nog gebruikt", Toast.LENGTH_LONG).show();
                         }
