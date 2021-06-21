@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="Incorrecte code"
+                android:text="@string/incorrect_code"
                 android:textColor="@color/EsstelingPrimary"
                 android:textSize="21sp"
                 android:textStyle="bold"

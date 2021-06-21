@@ -64,11 +64,11 @@ public class MyPrizesFragment extends Fragment implements PriceAdapter.OnItemCli
         this.recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
 
-        priceList.add(new Price("Essteling Roodkapje Sleutelhanger", "Een sleutelhanger van Roodkapje uit het sprookje van Roodkapje.", 4, R.drawable.esstelingsleutelhangerroodkapje, userSetting.getPrize1() ));
-        priceList.add(new Price("Essteling Roodkapje Knuffel", "Een knuffel van Roodkapje uit het sprookje van Roodkapje.", 3, R.drawable.esstelingknuffel, userSetting.getPrize2()));
-        priceList.add(new Price("Essteling Ticket Korting Bon", "Een eenmalige korting bon op je volgende Efteling ticket.", 2, R.drawable.esstelingkorting, userSetting.getPrize3()));
-        priceList.add(new Price("Essteling Restaurant Korting Bon", "Een eenmalige korting bon op je volgende bestelling bij een van onze restaurants.", 1, R.drawable.esstelingvoedselkortingklein, userSetting.getPrize4()));
-        priceList.add(new Price("Essteling fast lane pass", "Krijg eenmalig voorang in een wachtrij bij een attractie naar keuze.", 0, R.drawable.esstelingfastlane, userSetting.getPrize5()));
+        priceList.add(new Price(getString(R.string.prize_keychain), getString(R.string.prize_keychain_description), 4, R.drawable.esstelingsleutelhangerroodkapje, userSetting.getPrize1() ));
+        priceList.add(new Price(getString(R.string.prize_stuffedAnimal), getString(R.string.pirze_stuffedAnimal_description), 3, R.drawable.esstelingknuffel, userSetting.getPrize2()));
+        priceList.add(new Price(getString(R.string.prize_ticketDiscount), getString(R.string.prize_ticketDiscount_description), 2, R.drawable.esstelingkorting, userSetting.getPrize3()));
+        priceList.add(new Price(getString(R.string.prize_restaurantDiscount), getString(R.string.pirze_stuffedAnimal_description), 1, R.drawable.esstelingvoedselkortingklein, userSetting.getPrize4()));
+        priceList.add(new Price(getString(R.string.prize_fastLane), getString(R.string.prize_fastlane_description), 0, R.drawable.esstelingfastlane, userSetting.getPrize5()));
 
 
         return root;

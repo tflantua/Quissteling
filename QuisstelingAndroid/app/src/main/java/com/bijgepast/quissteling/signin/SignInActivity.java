@@ -39,7 +39,7 @@ public class SignInActivity extends AppCompatActivity {
                         + " Score: "
                         + userSetting.getScore());
                 startActivity(intent);
-            } else Toast.makeText(this, "Gebruikersnaam is leeg", Toast.LENGTH_LONG).show();
+            } else Toast.makeText(this, getString(R.string.empty_username), Toast.LENGTH_LONG).show();
         });
 
 

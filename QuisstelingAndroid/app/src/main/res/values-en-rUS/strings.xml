@@ -32,4 +32,54 @@
     <string name="ok">Ok</string>
     <string name="fastlaneticket">fastlaneticket</string>
     <string name="winPrize">You have won a price</string>
+    <string name="prize_keychain">Essteling Red Riding Hood keychain</string>
+    <string name="prize_keychain_description">A keychain of Red Riding Hood.</string>
+    <string name="prize_stuffedAnimal">Essteling Red Riding Hood stuffed animal.</string>
+    <string name="pirze_stuffedAnimal_description">A stuffed animal looking like Red Riding Hood.</string>
+    <string name="prize_ticketDiscount">Essteling ticket discount voucher.</string>
+    <string name="prize_ticketDiscount_description">A one use discount voucher for a ticket from the Essteling.</string>
+    <string name="prize_restaurantDiscount">Essteling Restaurant discount voucher.</string>
+    <string name="prize_restaurantDiscount_description">A one use discount voucher that can be used at our restaurants.</string>
+    <string name="prize_fastLane">Essteling fastlane pass</string>
+    <string name="prize_fastlane_description">A pass that can be used once to surpass the waiting que.</string>
+    <string name="detailviewdescriptie">Description:</string>
+    <string name="detailviewplaats_nodig">Place needed:</string>
+    <string name="detailprijs">Price</string>
+    <string name="incorrect_code">incorrect code</string>
+    <string name="empty_username">Username is empty</string>
+
+    //questions
+    <string name="red_riding_hood">Red Riding Hood</string>
+
+    <string name="red_riding_hood_question_hearcolor">Which haircolor does Red Riding Hood have?</string>
+    <string name="red_riding_hood_question_hearcolor_blond">Blond</string>
+    <string name="red_riding_hood_question_hearcolor_black">Black</string>
+    <string name="red_riding_hood_question_hearcolor_brown">Brown</string>
+    <string name="red_riding_hood_question_hearcolor_red">Red</string>
+
+    <string name="red_riding_hood_question_kidnapping">The statue of Red Riding Hood has once been stolen, in which year did this happen for the first time?</string>
+
+    <string name="red_riding_hood_question_animal">Which animal makes his appearance in the story of Red Riding Hood?</string>
+    <string name="red_riding_hood_question_animal_lion">Lion</string>
+    <string name="red_riding_hood_question_animal_fox">Fox</string>
+    <string name="red_riding_hood_question_animal_kangaroo">Kangaroo</string>
+    <string name="red_riding_hood_question_animal_wolf">Wolf</string>
+
+    <string name="red_riding_hood_question_familymember">Which family member makes an appearance in the story of Red Riding Hood?</string>
+    <string name="red_riding_hood_question_familymember_grandpa">Her grandpa</string>
+    <string name="red_riding_hood_question_familymember_grandma">Her grandma</string>
+    <string name="red_riding_hood_question_familymember_father">Her father</string>
+    <string name="red_riding_hood_question_familymember_sister">Her sister</string>
+
+    <string name="red_riding_hood_question_otherLanguage">What is Red Riding Hood called in Dutch?</string>
+    <string name="red_riding_hood_question_otherLanguage_first">Rood Rijdend kapje</string>
+    <string name="red_riding_hood_question_otherLanguage_second">Meisje in het rood</string>
+    <string name="red_riding_hood_question_otherLanguage_third">Roodkapje</string>
+    <string name="red_riding_hood_question_otherLanguage_fourth">Rood hoedje</string>
+
+    <string name="red_riding_hood_question_yearSinceInPark">Since which year is Red Riding Hood part of the Essteling?</string>
+
+    <string name="toast_code_not_correct">The length of the code is not correct</string>
+    <string name="toast_location_already_used">You\'ve used this location recently</string>
+    <string name="toast_wrong_code">This is not the right code</string>
 </resources>
