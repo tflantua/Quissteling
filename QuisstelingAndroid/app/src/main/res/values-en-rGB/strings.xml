@@ -42,6 +42,9 @@
     <string name="prize_restaurantDiscount_description">A one use discount voucher that can be used at our restaurants.</string>
     <string name="prize_fastLane">Essteling fastlane pass</string>
     <string name="prize_fastlane_description">A pass that can be used once to surpass the waiting que.</string>
+    <string name="detailviewdescriptie">Description:</string>
+    <string name="detailviewplaats_nodig">Place needed:</string>
+    <string name="detailprijs">Price</string>
     <string name="empty_username">Username is empty</string>
 
     //questions
