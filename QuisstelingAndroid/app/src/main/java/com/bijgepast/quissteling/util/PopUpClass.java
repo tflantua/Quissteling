@@ -150,7 +150,7 @@ public class PopUpClass {
                 EditText code = popupView.findViewById(R.id.editTextNumber);
 
                 if (code.getText().toString().length() != 4) {
-                    Toast.makeText(context, "De lengte van de cijferreeks is niet correct",
+                    Toast.makeText(context, context.getString(R.string.toast_code_not_correct),
                             Toast.LENGTH_LONG).show();
                 } else {
                     try {
@@ -160,11 +160,11 @@ public class PopUpClass {
                             context.startActivity(intent);
                             userSetting.setLastDate(LocalDateTime.now());
                         } else {
-                            Toast.makeText(context, "U heeft deze locatie laats nog gebruikt", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, context.getString(R.string.toast_location_already_used), Toast.LENGTH_LONG).show();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
-                        Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, context.getString(R.string.toast_wrong_code), Toast.LENGTH_LONG).show();
                     }
                 }
             };

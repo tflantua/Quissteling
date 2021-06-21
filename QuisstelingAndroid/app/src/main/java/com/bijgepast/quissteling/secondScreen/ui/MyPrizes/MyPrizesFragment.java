@@ -64,11 +64,11 @@ public class MyPrizesFragment extends Fragment implements PriceAdapter.OnItemCli
         this.recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
 
-        priceList.add(new Price(getString(R.string.pricename_sleutelhanger), getString(R.string.pricedesc_sleutelhanger), 4, R.drawable.esstelingsleutelhangerroodkapje, userSetting.getPrize1() ));
-        priceList.add(new Price(getString(R.string.pricename_knuffel), getString(R.string.pricedesc_knuffel), 3, R.drawable.esstelingknuffel, userSetting.getPrize2()));
-        priceList.add(new Price(getString(R.string.pricename_ticketbon), getString(R.string.pricedesc_ticketbon), 2, R.drawable.esstelingkorting, userSetting.getPrize3()));
-        priceList.add(new Price(getString(R.string.pricename_restaurantbon), getString(R.string.pricedesc_restaurantbon), 1, R.drawable.esstelingvoedselkortingklein, userSetting.getPrize4()));
-        priceList.add(new Price(getString(R.string.pricename_fastlane), getString(R.string.pricedesc_fastlane), 0, R.drawable.esstelingfastlane, userSetting.getPrize5()));
+        priceList.add(new Price(getString(R.string.prize_keychain), getString(R.string.prize_keychain_description), 4, R.drawable.esstelingsleutelhangerroodkapje, userSetting.getPrize1() ));
+        priceList.add(new Price(getString(R.string.prize_stuffedAnimal), getString(R.string.pirze_stuffedAnimal_description), 3, R.drawable.esstelingknuffel, userSetting.getPrize2()));
+        priceList.add(new Price(getString(R.string.prize_ticketDiscount), getString(R.string.prize_ticketDiscount_description), 2, R.drawable.esstelingkorting, userSetting.getPrize3()));
+        priceList.add(new Price(getString(R.string.prize_restaurantDiscount), getString(R.string.pirze_stuffedAnimal_description), 1, R.drawable.esstelingvoedselkortingklein, userSetting.getPrize4()));
+        priceList.add(new Price(getString(R.string.prize_fastLane), getString(R.string.prize_fastlane_description), 0, R.drawable.esstelingfastlane, userSetting.getPrize5()));
 
 
         return root;
