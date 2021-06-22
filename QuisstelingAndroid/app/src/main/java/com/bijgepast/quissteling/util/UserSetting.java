@@ -38,10 +38,11 @@ public class UserSetting {
     public UserSetting(Context context) {
         this.context = context;
         this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        this.prizeAwarding = new PrizeAwarding(LeaderBoard.getUserLeaderBoardFromList(getUsername(), IO.readLeaderBoard()), this);
     }
 
-    public void setPrizeAwarding() {
-        this.prizeAwarding = new PrizeAwarding(new LeaderBoard(1, "Jochem", 99999), this.context);
+    public void setPrizeAwarding(PrizeAwarding prizeAwarding) {
+        this.prizeAwarding = prizeAwarding;
     }
 
     public void remove() {
@@ -59,6 +60,12 @@ public class UserSetting {
 
     public void addScore(int add) {
         this.setScore(this.getScore() + add);
+        this.prizeAwarding.getLeaderBoard().addScore(add);
+        try {
+            MainActivity.sortLeaderboards();
+        } catch (NullPointerException e) {
+
+        }
     }
 
     public String getUsername() {

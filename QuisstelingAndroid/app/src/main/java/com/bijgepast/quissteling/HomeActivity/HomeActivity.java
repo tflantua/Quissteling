@@ -56,8 +56,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
-        userSetting.setPrizeAwarding();
-
         //init values
         this.leaderBoardButton = findViewById(R.id.leaderBoardButton);
         this.infoButton = findViewById(R.id.InfoButton);

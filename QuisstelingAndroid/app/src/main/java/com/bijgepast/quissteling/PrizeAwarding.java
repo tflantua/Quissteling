@@ -17,9 +17,9 @@ public class PrizeAwarding {
     private boolean doneForToday;
     private final LeaderBoard leaderBoard;
 
-    public PrizeAwarding(LeaderBoard leaderBoard, Context context) {
+    public PrizeAwarding(LeaderBoard leaderBoard, UserSetting userSetting) {
         this.leaderBoard = leaderBoard;
-        this.userSetting = new UserSetting(context);
+        this.userSetting = userSetting;
         this.doneForToday = this.userSetting.getDoneToday();
     }
 
@@ -43,5 +43,9 @@ public class PrizeAwarding {
         } else if (leaderBoard.getPlace() == 4){
             userSetting.setPrize4(true);
         }
+    }
+
+    public LeaderBoard getLeaderBoard() {
+        return leaderBoard;
     }
 }
