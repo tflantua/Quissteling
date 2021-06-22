@@ -87,7 +87,7 @@ public class PopUpClass {
     public void checkCode(View popupView, Context context){
         EditText code = popupView.findViewById(R.id.editTextNumber);
 
-        if (code.getText().toString().length() != 4) {
+        if (code.getText().toString().length() != 4 || code.getText().toString().substring(2).equals("00")) {
             Toast.makeText(context, context.getString(R.string.toast_wrong_code),
                     Toast.LENGTH_LONG).show();
         } else {
