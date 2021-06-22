@@ -1,13 +1,10 @@
 package com.bijgepast.quissteling.secondScreen;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -16,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bijgepast.quissteling.BR;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.secondScreen.ui.MyPrizes.MyPrizesDetailView;
 
 import java.util.List;
 

@@ -11,6 +11,7 @@ import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {

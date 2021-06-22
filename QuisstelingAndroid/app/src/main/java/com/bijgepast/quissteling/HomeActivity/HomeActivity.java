@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +12,14 @@ import androidx.databinding.DataBindingUtil;
 
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.databinding.ActivityHomeBinding;
+import com.bijgepast.quissteling.quiz.Quiz;
 import com.bijgepast.quissteling.secondScreen.LeaderBoard;
 import com.bijgepast.quissteling.secondScreen.SecondActivity;
 import com.bijgepast.quissteling.util.IO;
 import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.util.UserSetting;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -34,8 +37,9 @@ public class HomeActivity extends AppCompatActivity {
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         binding.setScore(userSetting);
         Intent lastIntent = getIntent();
-        boolean correct = lastIntent.getExtras().getBooleanExtra(Quiz.CORRECT_KEY, null);
-        if (correct != null){
+
+        if (lastIntent.hasExtra(Quiz.CORRECT_KEY)){
+            boolean correct = lastIntent.getExtras().getBoolean(Quiz.CORRECT_KEY);
             if (correct){
                 ImageView image= (ImageView) findViewById(R.id.firstGamePoint);
                 image.setImageResource(R.drawable.point_icon_checked);

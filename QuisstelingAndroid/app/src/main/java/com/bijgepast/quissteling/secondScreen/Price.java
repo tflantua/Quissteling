@@ -16,18 +16,6 @@ public class Price implements Serializable {
     // 0 = unlocked
     // 1 = locked
 
-    public Price(String priceName, String priceDescription, int imageResourceId, Boolean lockCheck) {
-        this.priceName = priceName;
-        this.priceDescription = priceDescription;
-        this.placeNeeded = 0;
-        this.imageResourceId = imageResourceId;
-        if (lockCheck){
-            this.lock = 0;
-        } else{
-            this.lock = 1;
-        }
-    }
-
     public Price(String priceName, String priceDescription, int placeNeeded, int imageResourceId, Boolean lockCheck) {
         this.priceName = priceName;
         this.priceDescription = priceDescription;

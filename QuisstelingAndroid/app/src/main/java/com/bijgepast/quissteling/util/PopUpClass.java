@@ -17,7 +17,8 @@ import androidx.annotation.RequiresApi;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.quiz.QuizActivity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 public class PopUpClass {
     private final View view;

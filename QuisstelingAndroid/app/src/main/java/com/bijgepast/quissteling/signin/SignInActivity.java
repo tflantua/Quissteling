@@ -1,17 +1,19 @@
 package com.bijgepast.quissteling.signin;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bijgepast.quissteling.HomeActivity.HomeActivity;
-import com.bijgepast.quissteling.util.MainActivity;
 import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.util.MainActivity;
 import com.bijgepast.quissteling.util.UserSetting;
 
 public class SignInActivity extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class SignInActivity extends AppCompatActivity {
     private EditText usernameInput;
     UserSetting userSetting;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

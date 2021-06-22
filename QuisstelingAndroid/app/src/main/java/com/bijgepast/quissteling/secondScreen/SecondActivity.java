@@ -1,6 +1,5 @@
 package com.bijgepast.quissteling.secondScreen;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,13 +12,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.bijgepast.quissteling.util.PopUpClass;
 import com.bijgepast.quissteling.R;
-import com.bijgepast.quissteling.util.UserSetting;
 import com.bijgepast.quissteling.databinding.ActivitySecondscreenBinding;
+import com.bijgepast.quissteling.util.PopUpClass;
+import com.bijgepast.quissteling.util.UserSetting;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 
 public class SecondActivity extends AppCompatActivity {
