@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bijgepast.quissteling">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -9,13 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Quissteling">
-        <activity android:name=".MainActivity">
+        <activity android:name=".secondScreen.ui.MyPrizes.MyPrizesDetailView"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".quiz.QuizActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".secondScreen.SecondActivity"
+            android:label="@string/title_activity_leader_board"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HomeActivity.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".util.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".signin.SignInActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

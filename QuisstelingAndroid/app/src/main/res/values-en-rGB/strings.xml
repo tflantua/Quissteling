@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quissteling</string>
+    <string name="preference_file_key">com.bijgepast.quissteling_setting</string>
+    <string name="usernameHint">Enter a username</string>
+    <string name="quisstelingLabel">The Quissteling</string>
+    <string name="log_inButton">Log in</string>
+    <string name="title_activity_leader_board">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_score_bord">score bord</string>
+    <string name="title_myPrizes">My prizes</string>
+    <string name="go_back"><![CDATA[<-]]></string>
+    <string name="FillInCode">code</string>
+    <string name="Info">I</string>
+    <string name="score">Score</string>
+    <string name="place">Ranking</string>
+    <string name="username">Username</string>
+    <string name="popup_close">Close</string>
+    <string name="popup_codeinvoer">Put the question code in:</string>
+    <string name="popup_submit">Enter</string>
+    <string name="helpDescription">"The Quissteling app gives a digital experience by means of a quiz. In order to play the quiz first a minigame must be played. On the map you will find where minigames are found. After finishing a minigame successfully you will receive a code. When you press the button in the top right of the app you will be able to put this code in and start with answering quiz questions.  \\n \\n When you have answered a question correctly you will receive a score for this. Your total score is viewable in the top of the navigation bar. If you want to know how your score compares in comparison to other Quissteling users, then you can press on the top-left button to go to the leaderboard. In the leaderboard you can also find any prizes you may have won. Prizes are awarded at the end of the day according to the leaderboard positions. In addition to that, there is also a small chance to win a price after correctly answering any quiz question. "</string>
+    <string name="close">Close</string>
+    <string name="correctAnswerText">You got the question right!</string>
+    <string name="correctAnswerScoreText">Your new score is:</string>
+    <string name="wrongAnswerText">Unfortunately you got the question wrong!</string>
+    <string name="wrongAnswerScoreText">Your score stays:</string>
+    <string name="prijs">Prize</string>
+    <string name="beschrijving">Description</string>
+    <string name="plaats_nodig">Placement needed</string>
+    <string name="ok">Ok</string>
+    <string name="fastlaneticket">fastlaneticket</string>
+    <string name="winPrize">You have won a price</string>
+    <string name="prize_keychain">Essteling Red Riding Hood keychain</string>
+    <string name="prize_keychain_description">A keychain of Red Riding Hood.</string>
+    <string name="prize_stuffedAnimal">Essteling Red Riding Hood stuffed animal.</string>
+    <string name="pirze_stuffedAnimal_description">A stuffed animal looking like Red Riding Hood.</string>
+    <string name="prize_ticketDiscount">Essteling ticket discount voucher.</string>
+    <string name="prize_ticketDiscount_description">A one use discount voucher for a ticket from the Essteling.</string>
+    <string name="prize_restaurantDiscount">Essteling Restaurant discount voucher.</string>
+    <string name="prize_restaurantDiscount_description">A one use discount voucher that can be used at our restaurants.</string>
+    <string name="prize_fastLane">Essteling fastlane pass</string>
+    <string name="prize_fastlane_description">A pass that can be used once to surpass the waiting que.</string>
+    <string name="detailviewdescriptie">Description:</string>
+    <string name="detailviewplaats_nodig">Place needed:</string>
+    <string name="detailprijs">Price</string>
+    <string name="incorrect_code">incorrect code</string>
+    <string name="empty_username">Username is empty</string>
+
+    //questions
+    <string name="red_riding_hood">Red Riding Hood</string>
+
+    <string name="red_riding_hood_question_hearcolor">Which haircolor does Red Riding Hood have?</string>
+    <string name="red_riding_hood_question_hearcolor_blond">Blond</string>
+    <string name="red_riding_hood_question_hearcolor_black">Black</string>
+    <string name="red_riding_hood_question_hearcolor_brown">Brown</string>
+    <string name="red_riding_hood_question_hearcolor_red">Red</string>
+
+    <string name="red_riding_hood_question_kidnapping">The statue of Red Riding Hood has once been stolen, in which year did this happen for the first time?</string>
+
+    <string name="red_riding_hood_question_animal">Which animal makes his appearance in the story of Red Riding Hood?</string>
+    <string name="red_riding_hood_question_animal_lion">Lion</string>
+    <string name="red_riding_hood_question_animal_fox">Fox</string>
+    <string name="red_riding_hood_question_animal_kangaroo">Kangaroo</string>
+    <string name="red_riding_hood_question_animal_wolf">Wolf</string>
+
+    <string name="red_riding_hood_question_familymember">Which family member makes an appearance in the story of Red Riding Hood?</string>
+    <string name="red_riding_hood_question_familymember_grandpa">Her grandpa</string>
+    <string name="red_riding_hood_question_familymember_grandma">Her grandma</string>
+    <string name="red_riding_hood_question_familymember_father">Her father</string>
+    <string name="red_riding_hood_question_familymember_sister">Her sister</string>
+
+    <string name="red_riding_hood_question_otherLanguage">What is Red Riding Hood called in Dutch?</string>
+    <string name="red_riding_hood_question_otherLanguage_first">Rood Rijdend kapje</string>
+    <string name="red_riding_hood_question_otherLanguage_second">Meisje in het rood</string>
+    <string name="red_riding_hood_question_otherLanguage_third">Roodkapje</string>
+    <string name="red_riding_hood_question_otherLanguage_fourth">Rood hoedje</string>
+
+    <string name="red_riding_hood_question_yearSinceInPark">Since which year is Red Riding Hood part of the Essteling?</string>
+
+    <string name="toast_code_not_correct">The length of the code is not correct</string>
+    <string name="toast_location_already_used">You\'ve used this location recently</string>
+    <string name="toast_wrong_code">This is not the right code</string>
+
+</resources>

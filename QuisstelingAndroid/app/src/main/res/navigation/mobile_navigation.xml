@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_leaderboard">
+
+    <fragment
+        android:id="@+id/navigation_leaderboard"
+        android:name="com.bijgepast.quissteling.secondScreen.ui.LeaderBoard.LeaderBoardFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_leaderboard" />
+
+    <fragment
+        android:id="@+id/navigation_myprizes"
+        android:name="com.bijgepast.quissteling.secondScreen.ui.MyPrizes.MyPrizesFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_myprizes" />
+</navigation>
