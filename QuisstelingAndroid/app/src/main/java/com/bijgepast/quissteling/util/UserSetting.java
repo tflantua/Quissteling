@@ -3,6 +3,8 @@ package com.bijgepast.quissteling.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class UserSetting {
+    private static final String LOG_TAG = UserSetting.class.getSimpleName();
     private final SharedPreferences sharedPref;
     private Context context;
 
@@ -36,12 +39,11 @@ public class UserSetting {
     //TODO get leaderboard from json and place in constructor above
 
     public UserSetting(Context context) {
-        this.context = context;
-        this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        this.sharedPref = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
     }
 
     public void setPrizeAwarding() {
-        this.prizeAwarding = new PrizeAwarding(new LeaderBoard(1, "Jochem", 99999), this.context);
+        this.prizeAwarding = new PrizeAwarding(new LeaderBoard(1, "Jochem", 99999), this);
     }
 
     public void remove() {
@@ -66,7 +68,8 @@ public class UserSetting {
     }
 
     public void setUsername(String username) {
-        this.sharedPref.edit().putString(USERNAME_KEY, username).apply();
+        this.sharedPref.edit().putString(USERNAME_KEY, username).commit();
+        Log.i(LOG_TAG, "Added username to preferences: " + this.sharedPref.contains(USERNAME_KEY));
     }
 
     public String getScoreString() {
@@ -78,7 +81,8 @@ public class UserSetting {
     }
 
     public void setScore(int score) {
-        this.sharedPref.edit().putInt(SCORE_KEY, score).apply();
+        this.sharedPref.edit().putInt(SCORE_KEY, score).commit();
+        Log.i(LOG_TAG, "Added score to preferences: " + this.sharedPref.contains(SCORE_KEY));
     }
 
     public void setDoneToday(boolean done) {
