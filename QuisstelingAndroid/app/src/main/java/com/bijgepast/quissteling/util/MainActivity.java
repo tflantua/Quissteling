@@ -15,6 +15,7 @@ import com.bijgepast.quissteling.signin.SignInActivity;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         this.userSetting = new UserSetting(this);
+
+        // For testing purposes, to be able to make multiple users
 //        this.userSetting.remove();
         InitQuestion.add(this);
 
@@ -60,5 +63,33 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<LeaderBoard> getLeaderBoards() {
         return leaderBoards;
+    }
+
+    public static void sortLeaderboards() {
+        leaderBoards.sort(new Comparator<LeaderBoard>() {
+            @Override
+            public int compare(LeaderBoard o1, LeaderBoard o2) {
+                return Integer.parseInt(o2.getScore()) - Integer.parseInt(o1.getScore());
+            }
+        });
+        updateRanking();
+    }
+
+    private static void updateRanking() {
+        ArrayList<LeaderBoard> leaderBoards = getLeaderBoards();
+        for (int i = 0; i < leaderBoards.size(); i++) {
+            leaderBoards.get(i).setPlace(i + 1);
+        }
+    }
+
+    public static void swapLeaderboard(String username, int score) {
+        for (int i = 0; i < leaderBoards.size(); i++) {
+            LeaderBoard leaderBoard = leaderBoards.get(i);
+            if (leaderBoard.getUserName().equals(username)) {
+                int rank = leaderBoard.getPlace();
+                leaderBoards.remove(leaderBoard);
+                leaderBoards.add(new LeaderBoard(rank, username, score));
+            }
+        }
     }
 }

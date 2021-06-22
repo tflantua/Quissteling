@@ -44,4 +44,8 @@ public class PrizeAwarding {
             userSetting.setPrize4(true);
         }
     }
+
+    public LeaderBoard getLeaderBoard() {
+        return leaderBoard;
+    }
 }

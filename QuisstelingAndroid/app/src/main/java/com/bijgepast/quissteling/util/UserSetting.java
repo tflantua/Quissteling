@@ -36,14 +36,15 @@ public class UserSetting {
     private final String YEAR = "year";
 
     private PrizeAwarding prizeAwarding;
-    //TODO get leaderboard from json and place in constructor above
 
     public UserSetting(Context context) {
-        this.sharedPref = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        this.context = context;
+        this.sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        this.prizeAwarding = new PrizeAwarding(LeaderBoard.getUserLeaderBoardFromList(getUsername(), IO.readLeaderBoard()), this);
     }
 
-    public void setPrizeAwarding() {
-        this.prizeAwarding = new PrizeAwarding(new LeaderBoard(1, "Jochem", 99999), this);
+    public void setPrizeAwarding(PrizeAwarding prizeAwarding) {
+        this.prizeAwarding = prizeAwarding;
     }
 
     public void remove() {
@@ -61,6 +62,16 @@ public class UserSetting {
 
     public void addScore(int add) {
         this.setScore(this.getScore() + add);
+        MainActivity.swapLeaderboard(getUsername(), getScore());
+        try {
+            MainActivity.sortLeaderboards();
+        } catch (NullPointerException e) {
+            Log.e(LOG_TAG, "Nullpointer in sorting leaderboards in addScore");
+            e.printStackTrace();
+        }
+
+        // commit change to json
+        IO.writeLeaderBoard(MainActivity.getLeaderBoards());
     }
 
     public String getUsername() {

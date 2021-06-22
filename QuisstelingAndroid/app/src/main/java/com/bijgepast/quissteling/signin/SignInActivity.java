@@ -12,7 +12,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bijgepast.quissteling.HomeActivity.HomeActivity;
+import com.bijgepast.quissteling.PrizeAwarding;
 import com.bijgepast.quissteling.R;
+import com.bijgepast.quissteling.secondScreen.LeaderBoard;
+import com.bijgepast.quissteling.util.IO;
 import com.bijgepast.quissteling.util.MainActivity;
 import com.bijgepast.quissteling.util.UserSetting;
 
@@ -41,6 +44,10 @@ public class SignInActivity extends AppCompatActivity {
                         + userSetting.getUsername()
                         + " Score: "
                         + userSetting.getScore());
+                LeaderBoard leaderBoard = new LeaderBoard(MainActivity.getLeaderBoards().size() + 1, userSetting.getUsername(), userSetting.getScore());
+                MainActivity.getLeaderBoards().add(leaderBoard);
+                userSetting.setPrizeAwarding(new PrizeAwarding(leaderBoard, userSetting));
+                IO.writeLeaderBoard(MainActivity.getLeaderBoards());
                 startActivity(intent);
                 this.finish();
             } else Toast.makeText(this, getString(R.string.empty_username), Toast.LENGTH_LONG).show();
