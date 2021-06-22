@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.userSetting = new UserSetting(this);
 
+        // TODO for testing uncomment below code so multiple users can use the same device
         // For testing purposes, to be able to make multiple users
 //        this.userSetting.remove();
         InitQuestion.add(this);

@@ -159,6 +159,7 @@ public class UserSetting {
             int year = this.sharedPref.getInt(this.YEAR, 0);
             int month = this.sharedPref.getInt(this.MONTH, 1);
             int day = this.sharedPref.getInt(this.DAY, 1);
+            // TODO for testing remove below +1 and instead do +0 to be able to keep on answering questions
             return LocalDateTime.of(year, month, day, hours + 1, minutes);
         } else {
             return null;
