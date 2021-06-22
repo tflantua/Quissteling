@@ -17,6 +17,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * Proof of concept Quissteling app
+ *
+ * by
+ *      Luca Brugel
+ *      Thomas Flantua
+ *      Wesley Roks
+ *      Jochem de Goeij
+ *      Martijn de Kam
+ */
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private UserSetting userSetting;
