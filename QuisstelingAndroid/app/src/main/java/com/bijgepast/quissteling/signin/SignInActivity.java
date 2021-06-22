@@ -47,6 +47,7 @@ public class SignInActivity extends AppCompatActivity {
                 MainActivity.getLeaderBoards().add(leaderBoard);
                 userSetting.setPrizeAwarding(new PrizeAwarding(leaderBoard, userSetting));
                 startActivity(intent);
+                this.finish();
             } else Toast.makeText(this, getString(R.string.empty_username), Toast.LENGTH_LONG).show();
         });
 

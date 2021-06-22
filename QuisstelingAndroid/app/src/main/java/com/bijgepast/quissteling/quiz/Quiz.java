@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -25,6 +26,7 @@ public class Quiz {
     private ArrayList<String> answers;
     private View v;
     private PopUpClass popUpClass;
+    private PopUpClass secondPopup;
     public static final String CORRECT_KEY = "answer";
 
     public Quiz(String id) {
@@ -107,7 +109,10 @@ public class Quiz {
                     Intent intent = new Intent(context, HomeActivity.class);
                     intent.putExtra(Quiz.CORRECT_KEY, false);
                     ((QuizActivity) context).startActivity(intent);
-                }).show(v);
+                    popUpClass.dismiss();
+                    ((QuizActivity) context).finish();
+                }).show(v, context);
+
             }
         } else {
             TextView topText = this.v.findViewById(R.id.answerpopuptext);
@@ -119,7 +124,9 @@ public class Quiz {
                 boolean correct = answers.containsKey(answer);
                 intent.putExtra(CORRECT_KEY, false);
                 ((QuizActivity) context).startActivity(intent);
-            }).show(v);
+                popUpClass.dismiss();
+                ((QuizActivity) context).finish();
+            }).show(v, context);
 
         }
     }
@@ -131,14 +138,27 @@ public class Quiz {
             UserSetting userSetting = new UserSetting(context);
             userSetting.setPrize5(true);
             this.popUpClass = new PopUpClass(view, R.layout.popup_fastlaneticket, context, view1 -> {
-                new PopUpClass(view, R.layout.popup_quizanswerscore, context, v -> {
+
+                secondPopup = new PopUpClass(view, R.layout.popup_quizanswerscore, context, v -> {
                     Intent intent = new Intent(context, HomeActivity.class);
                     intent.putExtra(CORRECT_KEY, true);
                     ((QuizActivity) context).startActivity(intent);
                     this.popUpClass.dismiss();
-                }).show(this.v);
+                    secondPopup.dismiss();
+                    ((QuizActivity) context).finish();
+                });
+                secondPopup.show(context);
+
             });
-            this.popUpClass.show();
+            this.popUpClass.show(context);
+        } else {
+            new PopUpClass(view, R.layout.popup_quizanswerscore, context, view1 -> {
+                Intent intent = new Intent(context, HomeActivity.class);
+                intent.putExtra(CORRECT_KEY, true);
+                ((QuizActivity) context).startActivity(intent);
+                popUpClass.dismiss();
+                ((QuizActivity) context).finish();
+            }).show(v, context);
         }
     }
 }

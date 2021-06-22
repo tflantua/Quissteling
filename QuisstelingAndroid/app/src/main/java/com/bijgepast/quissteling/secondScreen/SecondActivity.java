@@ -52,11 +52,11 @@ public class SecondActivity extends AppCompatActivity {
         });
 
         this.infoButton.setOnClickListener(view -> {
-            new PopUpClass(view, R.layout.popup_info, this).show();
+            new PopUpClass(view, R.layout.popup_info).show(this);
         });
 
         this.codeButton.setOnClickListener(view -> {
-            new PopUpClass(view, R.layout.popup_insertcode, this).show();
+            new PopUpClass(view, R.layout.popup_insertcode).show(this);
         });
 
         userSetting.getPrizeAwarding().checkTime();

@@ -52,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
             Log.d(LOG_TAG, "Username found sending to HomeActivity");
             leaderBoards.add(userSetting.getPrizeAwarding().getLeaderBoard());
             startActivity(intent);
+            this.finish();
         } else {
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             Log.d(LOG_TAG, "No Username found sending to SignInActivity");
             startActivity(intent);
+            this.finish();
         }
     }
 
