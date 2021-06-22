@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         this.userSetting = new UserSetting(this);
 
-        this.userSetting.remove();
+        // For testing purposes, to be able to make multiple users
+//        this.userSetting.remove();
         InitQuestion.add(this);
 
         if (userSetting.exists()) {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             Log.d(LOG_TAG, "Username found sending to HomeActivity");
-            leaderBoards.add(userSetting.getPrizeAwarding().getLeaderBoard());
             startActivity(intent);
             this.finish();
         } else {
@@ -72,5 +72,24 @@ public class MainActivity extends AppCompatActivity {
                 return Integer.parseInt(o2.getScore()) - Integer.parseInt(o1.getScore());
             }
         });
+        updateRanking();
+    }
+
+    private static void updateRanking() {
+        ArrayList<LeaderBoard> leaderBoards = getLeaderBoards();
+        for (int i = 0; i < leaderBoards.size(); i++) {
+            leaderBoards.get(i).setPlace(i + 1);
+        }
+    }
+
+    public static void swapLeaderboard(String username, int score) {
+        for (int i = 0; i < leaderBoards.size(); i++) {
+            LeaderBoard leaderBoard = leaderBoards.get(i);
+            if (leaderBoard.getUserName().equals(username)) {
+                int rank = leaderBoard.getPlace();
+                leaderBoards.remove(leaderBoard);
+                leaderBoards.add(new LeaderBoard(rank, username, score));
+            }
+        }
     }
 }

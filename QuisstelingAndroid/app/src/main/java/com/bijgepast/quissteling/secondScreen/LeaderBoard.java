@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class LeaderBoard implements Serializable {
-    private final int place;
+    private int place;
     private final String userName;
     private  int score;
 
@@ -20,6 +20,10 @@ public class LeaderBoard implements Serializable {
 
     public int getPlace() {
         return place;
+    }
+
+    public void setPlace(int place) {
+        this.place = place;
     }
 
     public String getUserName() {

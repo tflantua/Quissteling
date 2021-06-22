@@ -36,7 +36,6 @@ public class UserSetting {
     private final String YEAR = "year";
 
     private PrizeAwarding prizeAwarding;
-    //TODO get leaderboard from json and place in constructor above
 
     public UserSetting(Context context) {
         this.context = context;
@@ -63,12 +62,16 @@ public class UserSetting {
 
     public void addScore(int add) {
         this.setScore(this.getScore() + add);
-        this.prizeAwarding.getLeaderBoard().addScore(add);
+        MainActivity.swapLeaderboard(getUsername(), getScore());
         try {
             MainActivity.sortLeaderboards();
         } catch (NullPointerException e) {
-
+            Log.e(LOG_TAG, "Nullpointer in sorting leaderboards in addScore");
+            e.printStackTrace();
         }
+
+        // commit change to json
+        IO.writeLeaderBoard(MainActivity.getLeaderBoards());
     }
 
     public String getUsername() {

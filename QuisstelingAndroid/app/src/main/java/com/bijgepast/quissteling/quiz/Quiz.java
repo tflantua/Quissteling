@@ -156,7 +156,6 @@ public class Quiz {
                 Intent intent = new Intent(context, HomeActivity.class);
                 intent.putExtra(CORRECT_KEY, true);
                 ((QuizActivity) context).startActivity(intent);
-                popUpClass.dismiss();
                 ((QuizActivity) context).finish();
             }).show(v, context);
         }
