@@ -63,30 +63,27 @@
         ClearPlayerInput();
       }
 
+      // check if any button is pressed
       if(digitalRead(buttonPin1) == HIGH){
-        PressedButton(1, ledPin1);
-        
+        PressedButton(1, ledPin1);       
       } else {
           Led::setValue(ledPin1, false, 1, 0);
       }
 
       if(digitalRead(buttonPin2) == HIGH){
-        PressedButton(2, ledPin2);
-        
+        PressedButton(2, ledPin2);        
       } else {
         Led::setValue(ledPin2, false, 2, 0);
       }
 
       if(digitalRead(buttonPin3) == HIGH){
-        PressedButton(3, ledPin3);
-        
+        PressedButton(3, ledPin3);        
       } else {
         Led::setValue(ledPin3, false, 3, 0);
       }
 
       if(digitalRead(buttonPin4) == HIGH){
-        PressedButton(4, ledPin4);
-        
+        PressedButton(4, ledPin4);    
       } else {
         Led::setValue(ledPin4, false, 4, 0);
       }      
@@ -94,10 +91,10 @@
  }
 
 void GameManager::PressedButton(int button, int ledPin) {
-        Serial.print("Pressed button ");
-        Serial.println(button);
-        playerInput[playerProgress] = button - 1;
-        playerProgress++;
+  Serial.print("Pressed button ");
+  Serial.println(button);
+  playerInput[playerProgress] = button - 1;
+  playerProgress++;
   Led::setValue(ledPin, true, button, 1000);
 }
 
@@ -130,13 +127,13 @@ void GameManager::PressedButton(int button, int ledPin) {
  }
 
  void GameManager::ClearPlayerInput() {
-  // TODO if cleared because wrong make an error sound with the buzzer
   for (int i = 0; i < 5; i++) {
     playerInput[i] = -1;
   }
   playerProgress = 0;
  }
 
+  // show user progress on the lcd
  void GameManager::ShowProgress(LiquidCrystal_I2C lcd) {
   Serial.println("Showing on lcd player progress");
   // show progress

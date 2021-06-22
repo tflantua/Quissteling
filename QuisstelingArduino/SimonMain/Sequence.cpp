@@ -8,6 +8,7 @@
       int numberOrderArray[5];
       int progress;
 
+      // generate a random sequence to follow
       void GenerateSequence() {
         Serial.print("Sequence: ");
         for (int i = 0; i < 5; i++) {
@@ -24,7 +25,8 @@
         GenerateSequence();
         progress = 0;
       }
-      
+
+      // Start showing the current sequence progress
       void StartSequence(int ledPin1, int ledPin2, int ledPin3, int ledPin4) {
         Serial.println("Playing a sequence");
           for (int i = 0; i <= progress; i++) {
@@ -89,6 +91,7 @@
         return sizeof(numberOrderArray)/sizeof(*numberOrderArray);
       }
 
+      // reset the sequence and generate a new one
       void Reset(LiquidCrystal_I2C lcd) {
         GenerateSequence();
         progress = 0;

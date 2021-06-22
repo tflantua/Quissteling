@@ -30,7 +30,7 @@ void setup() {
   // set the random seed for better randomness
   randomSeed(analogRead(13));
 
-  // buzzer
+  // buzzer setup
   ledcSetup(0, 2E4, 8);
   ledcAttachPin(buzzerPin, 0);
 
@@ -41,6 +41,7 @@ void setup() {
   lcd.clear();
   lcd.print("Simon says spel");
 
+  // pin setup
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
   pinMode(ledPin3, OUTPUT);

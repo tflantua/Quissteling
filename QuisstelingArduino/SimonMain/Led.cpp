@@ -4,6 +4,7 @@
 #define LED_CPP
 class Led {
   public:
+  // set tje govem ledpin to a be on or off according to the given bool for a time
   static void setValue(int pin, bool val, int ledNum, int delayTime) {
     digitalWrite(pin, val);
 
