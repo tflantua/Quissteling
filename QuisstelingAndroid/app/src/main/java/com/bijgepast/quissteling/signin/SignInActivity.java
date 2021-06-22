@@ -42,6 +42,7 @@ public class SignInActivity extends AppCompatActivity {
                         + " Score: "
                         + userSetting.getScore());
                 startActivity(intent);
+                this.finish();
             } else Toast.makeText(this, getString(R.string.empty_username), Toast.LENGTH_LONG).show();
         });
 

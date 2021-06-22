@@ -6,6 +6,7 @@ import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
+import com.bijgepast.quissteling.HomeActivity.HomeActivity;
 import com.bijgepast.quissteling.R;
 import com.bijgepast.quissteling.quiz.QuizActivity;
 
@@ -23,23 +25,21 @@ import java.time.LocalDateTime;
 public class PopUpClass {
     private final View view;
     private final int resource;
-    private final Context context;
     private View.OnClickListener okOnClickListener;
     private PopupWindow popupWindow;
 
-    public PopUpClass(View view, int resource, Context context) {
+    public PopUpClass(View view, int resource) {
         this.view = view;
         this.resource = resource;
-        this.context = context;
     }
 
     public PopUpClass(View view, int resource, Context context, View.OnClickListener okOnClickListener) {
-        this(view, resource, context);
+        this(view, resource);
         this.okOnClickListener = okOnClickListener;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void show() {
+    public void show(Context context) {
         //Create a View object.
         LayoutInflater inflater = (LayoutInflater) this.view.getContext().getSystemService(this.view.getContext().LAYOUT_INFLATER_SERVICE);
         /*
@@ -73,43 +73,54 @@ public class PopUpClass {
 
         if (this.okOnClickListener == null) {
             this.okOnClickListener = v -> {
-                EditText code = popupView.findViewById(R.id.editTextNumber);
-
-                if (code.getText().toString().length() != 4) {
-                    Toast.makeText(context, "De lengte van de cijferreeks is niet correct",
-                            Toast.LENGTH_LONG).show();
-                } else {
-                    try {
-                        InitQuestion.quiz.setId(code.getText().toString());
-                        Intent intent = new Intent(context, QuizActivity.class);
-
-                        UserSetting userSetting = new UserSetting(context);
-                        if (userSetting.getLastDate() != null) {
-                            if (LocalDateTime.now().isAfter(userSetting.getLastDate())) {
-                                context.startActivity(intent);
-                                userSetting.setLastDate(LocalDateTime.now());
-                            } else {
-                                Toast.makeText(context, "U heeft deze locatie laats nog gebruikt", Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            userSetting.setLastDate(LocalDateTime.now());
-                            context.startActivity(intent);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(context, "Dit is niet de juiste code", Toast.LENGTH_LONG).show();
-                    }
-                }
+                checkCode(popupView, context);
             };
         }
 
         if (okButton != null) {
             okButton.setOnClickListener(okOnClickListener);
         }
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void show(View view) {
+    public void checkCode(View popupView, Context context){
+        EditText code = popupView.findViewById(R.id.editTextNumber);
+
+        if (code.getText().toString().length() != 4) {
+            Toast.makeText(context, context.getString(R.string.toast_wrong_code),
+                    Toast.LENGTH_LONG).show();
+        } else {
+            try {
+                InitQuestion.quiz.setId(code.getText().toString());
+                Intent intent = new Intent(context, QuizActivity.class);
+
+                UserSetting userSetting = new UserSetting(context);
+                if (userSetting.getLastDate() != null) {
+                    if (LocalDateTime.now().isAfter(userSetting.getLastDate())) {
+                        context.startActivity(intent);
+                        userSetting.setLastDate(LocalDateTime.now());
+                        popupWindow.dismiss();
+                        ((HomeActivity) context).finish();
+
+                    } else {
+                        Toast.makeText(context, context.getString(R.string.toast_location_already_used), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    userSetting.setLastDate(LocalDateTime.now());
+                    context.startActivity(intent);
+                    popupWindow.dismiss();
+                    ((HomeActivity) context).finish();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(context, context.getString(R.string.toast_wrong_code), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void show(View view, Context context) {
         //Create a View object.
         /**
          * In de resource kan je de 2 buttons aanmaken. Deze buttons moeten altijd hetzelfde id hebben
@@ -134,12 +145,6 @@ public class PopUpClass {
         //init buttons
         Button okButton = popupView.findViewById(R.id.okButton);
         Button closeButton = popupView.findViewById(R.id.closeButton);
-
-        if (this.okOnClickListener == null) {
-            this.okOnClickListener = view1 -> {
-
-            };
-        }
 
         //Onclick listeners
         if (closeButton != null) {
