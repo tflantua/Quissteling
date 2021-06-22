@@ -133,6 +133,7 @@ public class Quiz {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void chanceAtFLPass(View view, Context context) {
+        // TODO change the chance of getting a pass for testing
         double chance = 0.5;
         if (Math.random() < chance) {
             UserSetting userSetting = new UserSetting(context);
